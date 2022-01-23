@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Layout from '@/components/layouts/Layout';
 
 import ContactInputContainer from '@/components/container/contact/ContactInputContainer';
+import ContactConfirmContainer from '@/components/container/contact/ContactConfirmContainer';
 const ContactIndex = () => {
   return (
     <>
@@ -11,6 +12,7 @@ const ContactIndex = () => {
         <title>contact | contact form app</title>
       </Head>
       <ContactInputContainer />
+      <ContactConfirmContainer />
     </>
   );
 };
