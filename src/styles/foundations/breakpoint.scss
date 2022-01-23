@@ -1,0 +1,41 @@
+// ========================
+// breakpoint
+// ========================
+
+@use '@/styles/foundations/variables' as var;
+
+@mixin pc {
+  @media screen and (min-width: var.$BREAKPOINT) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media only screen and (max-width: var.$BREAKPOINT - 1) {
+    @content;
+  }
+}
+
+@mixin nosp {
+  @media only screen and (min-width: var.$BREAKPOINT) {
+    @content;
+  }
+}
+
+@mixin bp-max($px) {
+  @media only screen and (max-width: $px) {
+    @content;
+  }
+}
+
+@mixin bp-min($px) {
+  @media only screen and (min-width: $px) {
+    @content;
+  }
+}
+
+@mixin bp-print() {
+  @media only print {
+    @content;
+  }
+}

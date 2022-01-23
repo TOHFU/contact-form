@@ -1,0 +1,107 @@
+// ========================
+// mixin
+// ========================
+
+@use 'sass:math';
+@use '@/styles/foundations/breakpoint' as bp;
+
+// =============
+// font-size ＋ line-height
+// =============
+@mixin fl($px, $line-height) {
+  font-size: $px + px;
+  line-height: math.div($line-height, $px);
+}
+
+// =============
+// font-size ＋ line-height + letter-spacing
+// =============
+@mixin fls($px, $line-height, $letter-spacing) {
+  font-size: $px + px;
+  line-height: math.div($line-height, $px);
+  letter-spacing: math.div($letter-spacing, 1000) + em;
+}
+
+// =============
+// text ellipsis (single line)
+// =============
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// =============
+// icon
+// =============
+@mixin icon($url, $w, $h, $align: -1) {
+  width: $w + px;
+  height: $h + px;
+  display: inline-block;
+  background: url($url);
+  background-repeat: no-repeat;
+  background-size: ($w + px) ($h + px);
+  content: '';
+  vertical-align: $align + px;
+}
+
+// =============
+// aspect ratio
+// =============
+@mixin aspect-ratio($arglist... /*$ratio or $width, $height*/) {
+  $map: keywords($arglist);
+  $height: map-get($map, height) or nth-value($arglist, 2);
+  $width: map-get($map, width) or nth-value($arglist, 1);
+  $ratio: map-get($map, ratio) or if($width and $height, math.div($width, $height), nth-value($arglist, 1)) or 1;
+  $padding: math.div(1, $ratio) * 100%;
+
+  &::before,
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+    width: 1px;
+    margin-left: -1px;
+  }
+
+  &::before {
+    float: left;
+    padding-bottom: $padding;
+  }
+}
+
+@function nth-value($list, $index) {
+  @return if(length($list) >=$index, nth($list, $index), null);
+}
+
+// =============
+// accessible focus style
+// =============
+@mixin accessibleFocus {
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 2px 2px $COLOR_TAP_HIGHLIGHT;
+  }
+}
+
+// =============
+// basic hover action
+// =============
+@mixin hover {
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  @include bp.nosp {
+    &:hover {
+      opacity: 0.6;
+    }
+    &:active {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin background-cover {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}

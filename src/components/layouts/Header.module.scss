@@ -1,0 +1,47 @@
+@use '@/styles/foundations/variables' as var;
+@use '@/styles/foundations/mixins' as mixin;
+@use '@/styles/foundations/breakpoint' as bp;
+
+$HEADER_HEIGHT: 72px;
+
+.Header {
+  width: 100%;
+  height: $HEADER_HEIGHT;
+  position: relative;
+  z-index: var.$Z_INDEX_HEADER;
+  &Inner {
+    width: 100%;
+    height: $HEADER_HEIGHT;
+    top: 0;
+    padding: 0 24px;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    background-color: var.$COLOR_BACKGROUND;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    h1 {
+      margin: 0;
+      color: var.$COLOR_TEXT;
+      @include mixin.fl(16, 24);
+      @include mixin.hover;
+    }
+  }
+  &Navi {
+    margin-left: auto;
+    ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      li {
+        list-style-type: none;
+      }
+    }
+    &Link {
+      padding: 0 16px;
+      display: inline-block;
+      color: var.$COLOR_TEXT;
+      @include mixin.fl(16, 72);
+      @include mixin.hover;
+    }
+  }
+}
