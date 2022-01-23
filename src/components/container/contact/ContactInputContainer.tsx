@@ -2,22 +2,11 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
-type Props = {};
+import { FormValues } from '@/pages/contact';
 
-export type FormValues = {
-  firstName: string;
-  lastName: string;
-  firstNameKana: string;
-  lastNameKana: string;
-  company: string | undefined;
-  email: string;
-  postalcode: string | undefined;
-  address: string | undefined;
-  phone: string | undefined;
-  service: string | undefined;
-  title: string;
-  content: string;
-  agreement: boolean | undefined;
+type Props = {
+  formValues: FormValues;
+  onConfirm: (_values: FormValues) => void;
 };
 
 const schema: yup.SchemaOf<FormValues> = yup.object({
@@ -40,16 +29,18 @@ const schema: yup.SchemaOf<FormValues> = yup.object({
   agreement: yup.bool().isTrue('必須項目です。'),
 });
 
-const ContactInputContainer: React.FC<Props> = () => {
+const ContactInputContainer: React.FC<Props> = ({ formValues, onConfirm }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<FormValues>({
     resolver: yupResolver(schema),
+    defaultValues: formValues,
   });
 
   const onSubmit = handleSubmit((data) => {
+    onConfirm(data);
     console.log(data);
   });
 
