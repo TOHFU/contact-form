@@ -10,11 +10,14 @@
     "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.8.8",
     "next": "12.0.8",
     "normalize.css": "^8.0.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-use": "^17.3.2"
+    "react-hook-form": "^7.25.0",
+    "react-use": "^17.3.2",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/node": "17.0.10",
