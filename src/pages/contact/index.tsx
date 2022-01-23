@@ -5,6 +5,8 @@ import Layout from '@/components/layouts/Layout';
 
 import ContactInputContainer from '@/components/container/contact/ContactInputContainer';
 import ContactConfirmContainer from '@/components/container/contact/ContactConfirmContainer';
+import ContactCompleteContainer from '@/components/container/contact/ContactCompleteContainer';
+
 const ContactIndex = () => {
   return (
     <>
@@ -13,6 +15,7 @@ const ContactIndex = () => {
       </Head>
       <ContactInputContainer />
       <ContactConfirmContainer />
+      <ContactCompleteContainer />
     </>
   );
 };
