@@ -1,0 +1,9 @@
+@use '@/styles/foundations/variables' as var;
+@use '@/styles/foundations/mixins' as mixin;
+@use '@/styles/foundations/breakpoint' as bp;
+
+.TextAreaInput {
+  &.HasError {
+    color: red;
+  }
+}
