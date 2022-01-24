@@ -41,7 +41,7 @@ const SelectInput: React.FC<Props> = ({
       onBlur={onBlur}
       {...attribute}
     >
-      {options.map((item) => (
+      {options?.map((item) => (
         <option key={item.value} value={item.value}>
           {item.label}
         </option>
