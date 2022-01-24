@@ -1,8 +1,13 @@
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 import { FormValues } from '@/pages/contact';
+import Field from '@/components/common/Field';
+import TextInput from '@/components/common/TextInput';
+import SelectInput from '@/components/common/SelectInput';
+import TextAreaInput from '@/components/common/TextAreaInput';
+import CheckInput from '@/components/common/CheckInput';
 
 type Props = {
   formValues: FormValues;
@@ -32,6 +37,7 @@ const schema: yup.SchemaOf<FormValues> = yup.object({
 const ContactInputContainer: React.FC<Props> = ({ formValues, onConfirm }) => {
   const {
     register,
+    control,
     handleSubmit,
     formState: { errors },
   } = useForm<FormValues>({
@@ -46,76 +52,146 @@ const ContactInputContainer: React.FC<Props> = ({ formValues, onConfirm }) => {
 
   return (
     <form onSubmit={onSubmit}>
-      <div>
-        <label>姓</label>
-        <input {...register('firstName')} />
-        <p>{errors.firstName?.message}</p>
-      </div>
-      <div>
-        <label>名</label>
-        <input {...register('lastName')} />
-        <p>{errors.lastName?.message}</p>
-      </div>
-      <div>
-        <label>せい</label>
-        <input {...register('firstNameKana')} />
-        <p>{errors.firstNameKana?.message}</p>
-      </div>
-      <div>
-        <label>めい</label>
-        <input {...register('lastNameKana')} />
-        <p>{errors.lastNameKana?.message}</p>
-      </div>
-      <div>
-        <label>社名</label>
-        <input {...register('company')} />
-        <p>{errors.company?.message}</p>
-      </div>
-      <div>
-        <label>メールアドレス</label>
-        <input {...register('email')} />
-        <p>{errors.email?.message}</p>
-      </div>
-      <div>
-        <label>郵便番号</label>
-        <input {...register('postalcode')} />
-        <p>{errors.postalcode?.message}</p>
-      </div>
-      <div>
-        <label>住所</label>
-        <input {...register('address')} />
-        <p>{errors.address?.message}</p>
-      </div>
-      <div>
-        <label>電話番号</label>
-        <input {...register('phone')} />
-        <p>{errors.phone?.message}</p>
-      </div>
-      <div>
-        <label>どの製品について</label>
-        <select {...register('service')}>
-          <option value="">選択してください</option>
-          <option value="serviceA">Aサービスについて</option>
-          <option value="serviceB">Bサービスについて</option>
-          <option value="serviceC">Cサービスについて</option>
-        </select>
-        <p>{errors.service?.message}</p>
-      </div>
-      <div>
-        <label>問い合わせ件名</label>
-        <input {...register('title')} />
-        <p>{errors.title?.message}</p>
-      </div>
-      <div>
-        <label>問い合わせ内容</label>
-        <textarea {...register('content')} />
-        <p>{errors.content?.message}</p>
-      </div>
-      <div>
-        <label>個人情報の保持の同意</label>
-        <input type="checkbox" {...register('agreement')} />
-        <p>{errors.agreement?.message}</p>
-      </div>
+      <Controller
+        name="firstName"
+        control={control}
+        render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
+          <Field id={name} label={'姓'} error={error?.message}>
+            <TextInput value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
+          </Field>
+        )}
+      />
+      <Controller
+        name="lastName"
+        control={control}
+        render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
+          <Field id={name} label={'名'} error={error?.message}>
+            <TextInput value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
+          </Field>
+        )}
+      />
+      <Controller
+        name="firstNameKana"
+        control={control}
+        render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
+          <Field id={name} label={'せい'} error={error?.message}>
+            <TextInput value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
+          </Field>
+        )}
+      />
+      <Controller
+        name="lastNameKana"
+        control={control}
+        render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
+          <Field id={name} label={'めい'} error={error?.message}>
+            <TextInput value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
+          </Field>
+        )}
+      />
+      <Controller
+        name="company"
+        control={control}
+        render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
+          <Field id={name} label={'社名'} error={error?.message}>
+            <TextInput value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
+          </Field>
+        )}
+      />
+      <Controller
+        name="email"
+        control={control}
+        render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
+          <Field id={name} label={'メールアドレス'} error={error?.message}>
+            <TextInput value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
+          </Field>
+        )}
+      />
+      <Controller
+        name="postalcode"
+        control={control}
+        render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
+          <Field id={name} label={'郵便番号'} error={error?.message}>
+            <TextInput value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
+          </Field>
+        )}
+      />
+      <Controller
+        name="address"
+        control={control}
+        render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
+          <Field id={name} label={'住所'} error={error?.message}>
+            <TextInput value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
+          </Field>
+        )}
+      />
+      <Controller
+        name="phone"
+        control={control}
+        render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
+          <Field id={name} label={'電話番号'} error={error?.message}>
+            <TextInput value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
+          </Field>
+        )}
+      />
+      <Controller
+        name="service"
+        control={control}
+        render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
+          <Field id={name} label={'どの製品について'} error={error?.message}>
+            <SelectInput
+              options={[
+                {
+                  value: '',
+                  label: '選択してください',
+                },
+                {
+                  value: 'serviceA',
+                  label: 'Aサービスについて',
+                },
+                {
+                  value: 'serviceB',
+                  label: 'Bサービスについて',
+                },
+                {
+                  value: 'serviceC',
+                  label: 'Cサービスについて',
+                },
+              ]}
+              value={value}
+              onChange={onChange}
+              onBlur={onBlur}
+              inputRef={ref}
+            />
+          </Field>
+        )}
+      />
+      <Controller
+        name="title"
+        control={control}
+        render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
+          <Field id={name} label={'問い合わせ件名'} error={error?.message}>
+            <TextInput value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
+          </Field>
+        )}
+      />
+      <Controller
+        name="content"
+        control={control}
+        render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
+          <Field id={name} label={'問い合わせ内容'} error={error?.message}>
+            <TextAreaInput value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
+          </Field>
+        )}
+      />
+      <Controller
+        name="agreement"
+        control={control}
+        render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
+          <Field id={name} label={'個人情報の保持の同意'} error={error?.message}>
+            <CheckInput checked={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
+          </Field>
+        )}
+      />
       <div>
         <button type="submit">確認画面へ</button>
       </div>
