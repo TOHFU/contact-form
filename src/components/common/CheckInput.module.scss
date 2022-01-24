@@ -1,0 +1,11 @@
+@use '@/styles/foundations/variables' as var;
+@use '@/styles/foundations/mixins' as mixin;
+@use '@/styles/foundations/breakpoint' as bp;
+
+.CheckInput {
+  appearance: auto;
+  -webkit-appearance: auto;
+  &.HasError {
+    color: red;
+  }
+}
