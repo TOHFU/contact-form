@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Components/CheckInput Checked 1`] = `
+<input
+  aria-label=""
+  checked={true}
+  className="CheckInput  "
+  type="checkbox"
+/>
+`;
+
+exports[`Storyshots Components/CheckInput Unchecked 1`] = `
+<input
+  aria-label=""
+  checked={false}
+  className="CheckInput  "
+  type="checkbox"
+/>
+`;
+
+exports[`Storyshots Components/Field With Check Input 1`] = `
+<div
+  className="Field  "
+>
+  <label>
+    <span
+      className="fieldLabel"
+    >
+      TextInput
+    </span>
+    
+  </label>
+  <input
+    aria-label="TextInput"
+    checked={true}
+    className="CheckInput  "
+    onBlur={[Function]}
+    onChange={[Function]}
+    type="checkbox"
+  />
+  
+</div>
+`;
+
+exports[`Storyshots Components/Field With Text Input 1`] = `
+<div
+  className="Field  "
+>
+  <label>
+    <span
+      className="fieldLabel"
+    >
+      TextInput
+    </span>
+    
+  </label>
+  <input
+    aria-label="TextInput"
+    className="TextInput  "
+    onBlur={[Function]}
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  
+</div>
+`;
+
+exports[`Storyshots Components/SelectInput Basic 1`] = `
+<select
+  aria-label=""
+  className="SelectInput  "
+  value=""
+>
+  <option
+    value=""
+  >
+    選択してください
+  </option>
+  <option
+    value="serviceA"
+  >
+    Aサービスについて
+  </option>
+  <option
+    value="serviceB"
+  >
+    Bサービスについて
+  </option>
+  <option
+    value="serviceC"
+  >
+    Cサービスについて
+  </option>
+</select>
+`;
+
+exports[`Storyshots Components/TextAreaInput Basic 1`] = `
+<textarea
+  aria-label=""
+  className="TextAreaInput  "
+  value=""
+/>
+`;
+
+exports[`Storyshots Components/TextInput Basic 1`] = `
+<input
+  aria-label=""
+  className="TextInput  "
+  type="text"
+  value=""
+/>
+`;
