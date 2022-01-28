@@ -63,9 +63,9 @@ input[type='submit'],
 button {
   cursor: pointer;
 
-  &:focus {
-    outline: none;
-  }
+  // &:focus {
+  //   outline: none;
+  // }
 }
 
 select {
@@ -78,6 +78,6 @@ select::-ms-expand {
   display: none;
 }
 
-:focus {
-  outline: none;
-}
+// :focus {
+//   outline: none;
+// }
