@@ -1,43 +1,135 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Storyshots Components/Button Basic 1`] = `
+<button
+  className="Button"
+  disabled={false}
+  type="button"
+>
+  <span
+    className="ButtonLabel"
+  >
+    button
+  </span>
+</button>
+`;
+
+exports[`Storyshots Components/Button Rounded 1`] = `
+<button
+  className="Button ButtonRound"
+  disabled={false}
+  type="button"
+>
+  <span
+    className="ButtonLabel"
+  >
+    rounded button
+  </span>
+</button>
+`;
+
+exports[`Storyshots Components/Button With Next Icon 1`] = `
+<button
+  className="Button ButtonNext"
+  disabled={false}
+  type="button"
+>
+  <span
+    className="ButtonLabel"
+  >
+    button with next icon
+  </span>
+</button>
+`;
+
+exports[`Storyshots Components/Button With Prev Icon 1`] = `
+<button
+  className="Button ButtonPrev"
+  disabled={false}
+  type="button"
+>
+  <span
+    className="ButtonLabel"
+  >
+    button with prev icon
+  </span>
+</button>
+`;
+
 exports[`Storyshots Components/CheckInput Checked 1`] = `
-<input
-  aria-label=""
-  checked={true}
+<label
   className="CheckInput  "
-  type="checkbox"
-/>
+>
+  <input
+    aria-invalid={false}
+    aria-label="CheckBox"
+    aria-required={false}
+    checked={true}
+    className="CheckInputCheck"
+    type="checkbox"
+  />
+  <span
+    className="CheckInputLabel"
+  >
+    CheckBox
+  </span>
+</label>
 `;
 
 exports[`Storyshots Components/CheckInput Unchecked 1`] = `
-<input
-  aria-label=""
-  checked={false}
+<label
   className="CheckInput  "
-  type="checkbox"
-/>
+>
+  <input
+    aria-invalid={false}
+    aria-label="CheckBox"
+    aria-required={false}
+    checked={false}
+    className="CheckInputCheck"
+    type="checkbox"
+  />
+  <span
+    className="CheckInputLabel"
+  >
+    CheckBox
+  </span>
+</label>
 `;
 
 exports[`Storyshots Components/Field With Check Input 1`] = `
 <div
   className="Field  "
 >
-  <label>
+  <div
+    className="FieldLabel"
+  >
     <span
-      className="fieldLabel"
+      className="FieldLabelText"
     >
-      TextInput
+      CheckInput
     </span>
     
-  </label>
-  <input
-    aria-label="TextInput"
-    checked={true}
+  </div>
+  <label
     className="CheckInput  "
-    onBlur={[Function]}
-    onChange={[Function]}
-    type="checkbox"
-  />
+  >
+    <input
+      aria-invalid={false}
+      aria-label="Checkbox"
+      aria-required={false}
+      checked={true}
+      className="CheckInputCheck"
+      label="CheckInput"
+      onBlur={[Function]}
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span
+      className="CheckInputLabel"
+    >
+      Checkbox
+    </span>
+  </label>
   
 </div>
 `;
@@ -46,68 +138,134 @@ exports[`Storyshots Components/Field With Text Input 1`] = `
 <div
   className="Field  "
 >
-  <label>
+  <label
+    className="FieldLabel"
+  >
     <span
-      className="fieldLabel"
+      className="FieldLabelText"
     >
       TextInput
     </span>
     
   </label>
-  <input
-    aria-label="TextInput"
+  <div
     className="TextInput  "
-    onBlur={[Function]}
-    onChange={[Function]}
-    type="text"
-    value=""
-  />
+  >
+    <input
+      aria-invalid={false}
+      aria-label="TextInput"
+      aria-required={false}
+      className="TextInputText"
+      onBlur={[Function]}
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </div>
   
 </div>
 `;
 
 exports[`Storyshots Components/SelectInput Basic 1`] = `
-<select
-  aria-label=""
+<div
   className="SelectInput  "
-  value=""
 >
-  <option
+  <select
+    aria-invalid={false}
+    aria-label=""
+    aria-required={false}
+    className="SelectInputSelect"
     value=""
   >
-    選択してください
-  </option>
-  <option
-    value="serviceA"
-  >
-    Aサービスについて
-  </option>
-  <option
-    value="serviceB"
-  >
-    Bサービスについて
-  </option>
-  <option
-    value="serviceC"
-  >
-    Cサービスについて
-  </option>
-</select>
+    <option
+      value=""
+    >
+      選択してください
+    </option>
+    <option
+      value=""
+    >
+      選択してください
+    </option>
+    <option
+      value="serviceA"
+    >
+      Aサービスについて
+    </option>
+    <option
+      value="serviceB"
+    >
+      Bサービスについて
+    </option>
+    <option
+      value="serviceC"
+    >
+      Cサービスについて
+    </option>
+  </select>
+</div>
 `;
 
 exports[`Storyshots Components/TextAreaInput Basic 1`] = `
-<textarea
-  aria-label=""
+<div
   className="TextAreaInput  "
-  value=""
-/>
+>
+  <textarea
+    aria-invalid={false}
+    aria-label=""
+    aria-required={false}
+    className="TextAreaInputText"
+  />
+</div>
+`;
+
+exports[`Storyshots Components/TextInput Active 1`] = `
+<div
+  className="TextInput  "
+>
+  <input
+    aria-invalid={false}
+    aria-label=""
+    aria-required={false}
+    className="TextInputText"
+    onChange={[Function]}
+    placeholder="Here is a sample placeholder."
+    type="text"
+    value="Lorem ipsum dolor sit amet."
+  />
+</div>
 `;
 
 exports[`Storyshots Components/TextInput Basic 1`] = `
-<input
-  aria-label=""
+<div
   className="TextInput  "
-  type="text"
-  value=""
-/>
+>
+  <input
+    aria-invalid={false}
+    aria-label=""
+    aria-required={false}
+    className="TextInputText"
+    onChange={[Function]}
+    placeholder="Here is a sample placeholder."
+    type="text"
+    value=""
+  />
+</div>
+`;
+
+exports[`Storyshots Components/TextInput Error 1`] = `
+<div
+  className="TextInput  HasError"
+>
+  <input
+    aria-invalid={true}
+    aria-label=""
+    aria-required={false}
+    className="TextInputText"
+    onChange={[Function]}
+    placeholder="Here is a sample placeholder."
+    type="text"
+    value="Lorem ipsum dolor sit amet."
+  />
+</div>
 `;
