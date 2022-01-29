@@ -11,4 +11,4 @@ export const Services = [
     value: 'serviceC',
     label: 'Cサービスについて',
   },
-] as const;
+];
