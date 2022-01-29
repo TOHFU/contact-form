@@ -22,7 +22,7 @@ WithTextInput.args = {
 
 export const WithCheckInput = Template.bind({});
 WithCheckInput.args = {
-  label: 'TextInput',
+  label: 'CheckInput',
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  children: <CheckInput checked={true} onChange={() => {}} onBlur={() => {}} />,
+  children: <CheckInput checked={true} onChange={() => {}} text={'Checkbox'} onBlur={() => {}} />,
 };

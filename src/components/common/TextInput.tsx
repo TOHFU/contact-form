@@ -28,17 +28,20 @@ const TextInput: React.FC<Props> = ({
   ...attribute
 }) => {
   return (
-    <input
-      type={type}
-      id={id}
-      value={value}
-      aria-label={label}
-      className={`${styles.TextInput} ${className} ${hasError ? styles.HasError : ''}`}
-      ref={inputRef}
-      onChange={onChange}
-      onBlur={onBlur}
-      {...attribute}
-    />
+    <div className={`${styles.TextInput} ${className} ${hasError ? styles.HasError : ''}`}>
+      <input
+        type={type}
+        id={id}
+        value={value}
+        aria-label={label}
+        aria-invalid={hasError}
+        className={styles.TextInputText}
+        ref={inputRef}
+        onChange={onChange}
+        onBlur={onBlur}
+        {...attribute}
+      />
+    </div>
   );
 };
 

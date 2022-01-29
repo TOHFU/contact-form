@@ -1,13 +1,13 @@
 import { ChangeEvent, DetailedHTMLProps, SelectHTMLAttributes, RefCallback } from 'react';
 import styles from './SelectInput.module.scss';
 
-export type OptionsType = Array<{
+export interface OptionsType {
   value: string;
   label: string;
-}>;
+}
 
 type Props = {
-  options: OptionsType;
+  options: OptionsType[];
   value?: string;
   id?: string;
   label?: string;
@@ -17,6 +17,11 @@ type Props = {
   onChange: (_event: ChangeEvent<HTMLInputElement>) => void;
   onBlur?: () => void;
 } & DetailedHTMLProps<SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>;
+
+const initialOption = {
+  value: '',
+  label: '選択してください',
+} as const;
 
 const SelectInput: React.FC<Props> = ({
   options,
@@ -31,22 +36,25 @@ const SelectInput: React.FC<Props> = ({
   ...attribute
 }) => {
   return (
-    <select
-      id={id}
-      value={value}
-      aria-label={label}
-      className={`${styles.SelectInput} ${className} ${hasError ? styles.HasError : ''}`}
-      ref={inputRef}
-      onChange={onChange}
-      onBlur={onBlur}
-      {...attribute}
-    >
-      {options?.map((item) => (
-        <option key={item.value} value={item.value}>
-          {item.label}
-        </option>
-      ))}
-    </select>
+    <div className={`${styles.SelectInput} ${className} ${hasError ? styles.HasError : ''}`}>
+      <select
+        id={id}
+        value={value}
+        aria-label={label}
+        aria-invalid={hasError}
+        className={styles.SelectInputSelect}
+        ref={inputRef}
+        onChange={onChange}
+        onBlur={onBlur}
+        {...attribute}
+      >
+        {[initialOption, ...options]?.map((item) => (
+          <option key={item.value} value={item.value}>
+            {item.label}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 };
 

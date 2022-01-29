@@ -2,7 +2,7 @@ import { ChangeEvent, DetailedHTMLProps, TextareaHTMLAttributes, RefCallback } f
 import styles from './TextAreaInput.module.scss';
 
 type Props = {
-  value?: string;
+  value: string;
   id?: string;
   label?: string;
   hasError?: boolean;
@@ -13,7 +13,7 @@ type Props = {
 } & DetailedHTMLProps<TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement>;
 
 const TextAreaInput: React.FC<Props> = ({
-  value = '',
+  value,
   id,
   label = '',
   hasError = false,
@@ -24,16 +24,19 @@ const TextAreaInput: React.FC<Props> = ({
   ...attribute
 }) => {
   return (
-    <textarea
-      id={id}
-      value={value}
-      aria-label={label}
-      className={`${styles.TextAreaInput} ${className} ${hasError ? styles.HasError : ''}`}
-      ref={inputRef}
-      onChange={onChange}
-      onBlur={onBlur}
-      {...attribute}
-    />
+    <div className={`${styles.TextAreaInput} ${className} ${hasError ? styles.HasError : ''}`}>
+      <textarea
+        className={styles.TextAreaInputText}
+        id={id}
+        value={value}
+        aria-label={label}
+        aria-invalid={hasError}
+        ref={inputRef}
+        onChange={onChange}
+        onBlur={onBlur}
+        {...attribute}
+      />
+    </div>
   );
 };
 

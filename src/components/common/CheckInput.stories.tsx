@@ -14,9 +14,11 @@ const Template: ComponentStory<typeof CheckInput> = (args) => <CheckInput {...ar
 export const Unchecked = Template.bind({});
 Unchecked.args = {
   checked: false,
+  text: 'CheckBox',
 };
 
 export const Checked = Template.bind({});
 Checked.args = {
   checked: true,
+  text: 'CheckBox',
 };

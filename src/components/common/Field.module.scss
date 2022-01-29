@@ -3,6 +3,33 @@
 @use '@/styles/foundations/breakpoint' as bp;
 
 .Field {
+  position: relative;
+  &Label {
+    padding-bottom: 8px;
+    display: flex;
+    align-items: center;
+    color: var.$COLOR_TEXT;
+    &Text {
+      @include mixin.fls(16, 24, 50);
+      font-weight: 600;
+    }
+    &Required {
+      top: 1px;
+      margin-left: 4px;
+      padding: 0 4px;
+      position: relative;
+      @include mixin.fl(10, 20);
+      color: var.$COLOR_ERROR;
+      border: 1px solid var.$COLOR_ERROR;
+      border-radius: 4px;
+      // order: -1;
+    }
+  }
+  &Error {
+    margin: 4px 0 0;
+    @include mixin.fl(12, 16);
+    color: var.$COLOR_ERROR;
+  }
   &.HasError {
     color: red;
   }
