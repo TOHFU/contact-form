@@ -40,12 +40,7 @@ const schema: yup.SchemaOf<FormValues> = yup.object({
 });
 
 const ContactInputContainer: React.FC<Props> = ({ formValues, onConfirm }) => {
-  const {
-    register,
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormValues>({
+  const { control, handleSubmit } = useForm<FormValues>({
     resolver: yupResolver(schema),
     defaultValues: formValues,
   });

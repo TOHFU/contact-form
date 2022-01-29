@@ -8,6 +8,7 @@ type Props = {
   type?: InputType;
   id?: string;
   label?: string;
+  required?: boolean;
   hasError?: boolean;
   className?: string;
   inputRef?: RefCallback<HTMLInputElement>;
@@ -20,6 +21,7 @@ const TextInput: React.FC<Props> = ({
   type = 'text',
   id,
   label = '',
+  required = false,
   hasError = false,
   className = '',
   inputRef,
@@ -34,6 +36,7 @@ const TextInput: React.FC<Props> = ({
         id={id}
         value={value}
         aria-label={label}
+        aria-required={required}
         aria-invalid={hasError}
         className={styles.TextInputText}
         ref={inputRef}

@@ -11,6 +11,7 @@ type Props = {
   value?: string;
   id?: string;
   label?: string;
+  required?: boolean;
   hasError?: boolean;
   className?: string;
   inputRef?: RefCallback<HTMLSelectElement>;
@@ -28,6 +29,7 @@ const SelectInput: React.FC<Props> = ({
   value = '',
   id,
   label = '',
+  required = false,
   hasError = false,
   className = '',
   inputRef,
@@ -41,6 +43,7 @@ const SelectInput: React.FC<Props> = ({
         id={id}
         value={value}
         aria-label={label}
+        aria-required={required}
         aria-invalid={hasError}
         className={styles.SelectInputSelect}
         ref={inputRef}

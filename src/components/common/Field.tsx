@@ -17,17 +17,27 @@ const Field: React.FC<Props> = ({ id, label, required = false, hint = '', error 
   const hasCheckElement = childElements.some((element) => isValidElement(element) && element.type === CheckInput);
   const WrapElement = hasCheckElement ? 'div' : 'label';
 
-  const childElement = cloneElement(children, { id, label, hasError: error !== '' });
+  const childElement = cloneElement(children, { id, label, required, hasError: error !== '' });
+
+  const errorMessageId = `${id}-error-messaage`;
 
   return (
     <div className={`${styles.Field} ${className} ${error ? styles.HasError : ''}`}>
-      <WrapElement className={styles.FieldLabel} htmlFor={!hasCheckElement ? id : undefined}>
+      <WrapElement
+        className={styles.FieldLabel}
+        htmlFor={!hasCheckElement ? id : undefined}
+        aria-describedby={error.length ? errorMessageId : undefined}
+      >
         <span className={styles.FieldLabelText}>{label}</span>
         {required && <span className={styles.FieldLabelRequired}>必須</span>}
         {hint && <span className={styles.FieldHint}>{hint}</span>}
       </WrapElement>
       {childElement}
-      {error && <p className={styles.FieldError}>{error}</p>}
+      {error && (
+        <p id={errorMessageId} className={styles.FieldError}>
+          {error}
+        </p>
+      )}
     </div>
   );
 };

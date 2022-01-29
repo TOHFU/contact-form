@@ -5,6 +5,7 @@ type Props = {
   checked?: boolean;
   id?: string;
   text?: string;
+  required?: boolean;
   hasError?: boolean;
   className?: string;
   inputRef?: RefCallback<HTMLInputElement>;
@@ -16,6 +17,7 @@ const CheckInput: React.FC<Props> = ({
   checked = false,
   id,
   text = '',
+  required = false,
   hasError = false,
   className = '',
   inputRef,
@@ -30,6 +32,7 @@ const CheckInput: React.FC<Props> = ({
         id={id}
         checked={checked}
         aria-label={text}
+        aria-required={required}
         aria-invalid={hasError}
         className={styles.CheckInputCheck}
         ref={inputRef}
