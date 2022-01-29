@@ -77,10 +77,11 @@
 // =============
 // accessible focus style
 // =============
-@mixin accessibleFocus {
+@mixin accessibleFocus($color: var.$COLOR_TAP_HIGHLIGHT) {
+  &:active,
   &:focus {
     outline: none;
-    box-shadow: 0 0 2px 2px $COLOR_TAP_HIGHLIGHT;
+    box-shadow: 0 0 10px 2px $color;
   }
 }
 
