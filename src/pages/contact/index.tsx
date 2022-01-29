@@ -6,6 +6,8 @@ import ContactInputContainer from '@/components/container/contact/ContactInputCo
 import ContactConfirmContainer from '@/components/container/contact/ContactConfirmContainer';
 import ContactCompleteContainer from '@/components/container/contact/ContactCompleteContainer';
 
+import styles from './index.module.scss';
+
 export type FormValues = {
   firstName: string;
   lastName: string;
@@ -60,11 +62,13 @@ const ContactIndex = () => {
       <Head>
         <title>contact | contact form app</title>
       </Head>
-      {formState === 'input' && <ContactInputContainer formValues={formValues} onConfirm={handleConfirm} />}
-      {formState === 'confirm' && (
-        <ContactConfirmContainer formValues={formValues} onBack={handleBack} onSubmit={handleSubmit} />
-      )}
-      {formState === 'complete' && <ContactCompleteContainer />}
+      <div className={styles.Container}>
+        {formState === 'input' && <ContactInputContainer formValues={formValues} onConfirm={handleConfirm} />}
+        {formState === 'confirm' && (
+          <ContactConfirmContainer formValues={formValues} onBack={handleBack} onSubmit={handleSubmit} />
+        )}
+        {formState === 'complete' && <ContactCompleteContainer />}
+      </div>
     </>
   );
 };

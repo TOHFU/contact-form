@@ -1,0 +1,36 @@
+@use '@/styles/foundations/variables' as var;
+@use '@/styles/foundations/mixins' as mixin;
+@use '@/styles/foundations/breakpoint' as bp;
+
+.ContactConfirm {
+  &Card {
+    width: 100%;
+    max-width: 768px;
+    margin: 40px auto 0;
+    padding: 40px;
+    background-color: var.$COLOR_BACKGROUND;
+    @include mixin.card(2);
+    &Title {
+      @include mixin.fls(34, 34, 50);
+      font-weight: 700;
+    }
+  }
+  &List {
+    color: var.$COLOR_TEXT;
+    dt {
+      margin: 24px 0 0;
+      @include mixin.fls(16, 24, 50);
+      font-weight: 600;
+    }
+    dd {
+      margin: 8px 0 0;
+      @include mixin.fl(16, 16);
+    }
+  }
+  &Button {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 0 16px;
+  }
+}
