@@ -28,7 +28,7 @@
       box-sizing: border-box;
       border: 1px solid var.$COLOR_PRIMARY;
       border-radius: 4px;
-      background-color: var.$COLOR_WHITE;
+      background-color: var.$COLOR_BACKGROUND_FORM;
       content: '';
       .HasError & {
         border-color: var.$COLOR_ERROR;
@@ -49,7 +49,7 @@
       left: 7px;
       width: 3px;
       height: 7px;
-      border: 2px solid var.$COLOR_WHITE;
+      border: 2px solid var.$COLOR_BACKGROUND_FORM;
       border-top: none;
       border-left: none;
       transform: rotate(45deg);

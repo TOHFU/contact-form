@@ -27,7 +27,7 @@
     @include mixin.fl(16, 16);
     border: 1px solid var.$COLOR_PRIMARY;
     border-radius: 4px;
-    background-color: var.$COLOR_BACKGROUND;
+    background-color: var.$COLOR_BACKGROUND_FORM;
     &::placeholder {
       color: var.$COLOR_PLACEHOLDER;
     }
