@@ -123,17 +123,20 @@ const ContactInputContainer: React.FC<Props> = ({ formValues, onConfirm }) => {
             <Controller
               name="postalcode"
               control={control}
-              render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
-                <Field
-                  className={styles.ContactInputField}
-                  id={name}
-                  label={'郵便番号'}
-                  hint={'ハイフン不要'}
-                  error={error?.message}
-                >
-                  <TextInput type={'tel'} value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
-                </Field>
-              )}
+              render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => {
+                const newVal = value?.replace(/[^0-9]/g, '');
+                return (
+                  <Field
+                    className={styles.ContactInputField}
+                    id={name}
+                    label={'郵便番号'}
+                    hint={'ハイフン不要'}
+                    error={error?.message}
+                  >
+                    <TextInput type={'tel'} value={newVal} onChange={onChange} onBlur={onBlur} inputRef={ref} />
+                  </Field>
+                );
+              }}
             />
             <Controller
               name="address"
@@ -147,17 +150,20 @@ const ContactInputContainer: React.FC<Props> = ({ formValues, onConfirm }) => {
             <Controller
               name="phone"
               control={control}
-              render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
-                <Field
-                  className={styles.ContactInputField}
-                  id={name}
-                  label={'電話番号'}
-                  hint={'ハイフン不要'}
-                  error={error?.message}
-                >
-                  <TextInput type={'tel'} value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
-                </Field>
-              )}
+              render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => {
+                const newVal = value?.replace(/[^0-9]/g, '');
+                return (
+                  <Field
+                    className={styles.ContactInputField}
+                    id={name}
+                    label={'電話番号'}
+                    hint={'ハイフン不要'}
+                    error={error?.message}
+                  >
+                    <TextInput type={'tel'} value={newVal} onChange={onChange} onBlur={onBlur} inputRef={ref} />
+                  </Field>
+                );
+              }}
             />
           </div>
           <div className={`${styles.ContactInputContent} ${styles.ContactInputContentDetail}`}>
