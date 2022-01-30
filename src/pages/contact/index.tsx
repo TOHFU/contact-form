@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-floating-promises */
-import { ReactElement, useState } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 import Head from 'next/head';
@@ -64,12 +64,17 @@ const ContactIndex = () => {
     router.push('/');
   };
 
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [formState]);
+
   return (
     <>
       <Head>
         <title>contact | contact form app</title>
       </Head>
       <div className={styles.Container}>
+        <h1>お問い合わせ</h1>
         {formState === 'input' && <ContactInputContainer formValues={formValues} onConfirm={handleConfirm} />}
         {formState === 'confirm' && (
           <ContactConfirmContainer formValues={formValues} onBack={handleBack} onSubmit={handleSubmit} />

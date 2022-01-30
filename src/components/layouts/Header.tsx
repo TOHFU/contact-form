@@ -38,6 +38,9 @@ const Header: React.FC = () => {
           {isShowMenu && (
             <ul className={styles.HeaderMenu}>
               <li>
+                <CheckInput text={'switch dark mode'} checked={!!isDarkMode} onChange={handleClickDarkMode} />
+              </li>
+              <li>
                 <Link href={{ pathname: '/' }}>
                   <a className={styles.HeaderMenuLink} onClick={handleMenuClick}>
                     TOP
@@ -50,9 +53,6 @@ const Header: React.FC = () => {
                     CONTACT
                   </a>
                 </Link>
-              </li>
-              <li>
-                <CheckInput text={'switch dark mode'} checked={!!isDarkMode} onChange={handleClickDarkMode} />
               </li>
             </ul>
           )}

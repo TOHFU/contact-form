@@ -10,7 +10,6 @@
     top: 0;
     display: flex;
     align-items: center;
-    background-color: var.$COLOR_BACKGROUND;
     h1 {
       margin: 0;
       padding: 24px;
@@ -39,7 +38,7 @@
     transform: translateY(-10%);
     transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
     li {
-      padding: 8px 16px;
+      padding: 4px 16px;
       display: inline-block;
       @include mixin.fl(16, 16);
       @include mixin.hover;
