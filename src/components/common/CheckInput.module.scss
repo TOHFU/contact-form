@@ -17,6 +17,7 @@
     margin: 0;
     font-size: 1em;
     box-sizing: border-box;
+    cursor: pointer;
     z-index: 2;
     + span::before {
       display: block;

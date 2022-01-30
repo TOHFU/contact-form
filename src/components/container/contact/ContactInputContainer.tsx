@@ -37,7 +37,7 @@ const schema: yup.SchemaOf<FormValues> = yup.object({
   service: yup.string().required('必須項目です。'),
   title: yup.string().max(100, '100文字以内で入力してください。').required('必須項目です。'),
   content: yup.string().max(2000, '2000文字以内で入力してください。').required('必須項目です。'),
-  agreement: yup.bool().isTrue('必須項目です。'),
+  agreement: yup.bool().isTrue('必須項目です。').required('必須項目です。'),
 });
 
 const ContactInputContainer: React.FC<Props> = ({ formValues, onConfirm }) => {
@@ -230,7 +230,7 @@ const ContactInputContainer: React.FC<Props> = ({ formValues, onConfirm }) => {
                 )}
               />
               <div className={styles.ContactInputButton}>
-                <Button type={'submit'} label={'確認画面へ'} />
+                <Button type={'submit'} arrow={'next'} label={'確認画面へ'} />
               </div>
             </div>
           </div>

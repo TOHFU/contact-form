@@ -34,6 +34,14 @@
   &Round {
     border-radius: 24px;
   }
+  &Secondary {
+    color: var.$COLOR_PRIMARY;
+    background: var.$COLOR_BACKGROUND;
+    &:hover {
+      color: var.$COLOR_TEXT_LIGHT;
+      background-color: var.$COLOR_PRIMARY;
+    }
+  }
   &Next,
   &Prev {
     &::after {

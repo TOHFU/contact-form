@@ -9,6 +9,7 @@ type Props = {
   label?: string;
   className?: string;
   disabled?: boolean;
+  fill?: boolean;
   arrow?: ArrowType;
   round?: boolean;
   onClick?: () => void;
@@ -19,6 +20,7 @@ const Button: React.FC<Props> = ({
   label = '',
   className = '',
   disabled = false,
+  fill = true,
   arrow,
   round = false,
   onClick,
@@ -28,6 +30,7 @@ const Button: React.FC<Props> = ({
     styles.Button,
     arrow === 'next' ? styles.ButtonNext : '',
     arrow === 'prev' ? styles.ButtonPrev : '',
+    fill ? '' : styles.ButtonSecondary,
     round ? styles.ButtonRound : '',
     className,
   ];
