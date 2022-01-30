@@ -10,7 +10,7 @@ type Props = {
 const ContactCompleteContainer: React.FC<Props> = ({ onBack }) => {
   return (
     <div className={styles.ContactComplete}>
-      <Card className={styles.ContactCompleteCard} title={'お問い合わせありがとうございました。'}>
+      <Card className={styles.ContactCompleteCard} title={'ありがとうございました。'}>
         <div className={styles.ContactCompleteContent}>
           <p>お問い合わせ頂いた内容につきまして、 担当者から２・３営業日以内にご連絡させて頂きます。</p>
           <div className={styles.ContactCompleteButton}>
