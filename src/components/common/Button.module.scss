@@ -19,7 +19,7 @@
   background: var.$COLOR_PRIMARY;
   background-origin: border-box;
   cursor: pointer;
-  transition: opacity 0.1s ease, background-color 0.2s ease, color 0.2s ease;
+  transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease;
   @include mixin.accessibleFocus();
   &:hover {
     color: var.$COLOR_PRIMARY;

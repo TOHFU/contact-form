@@ -14,16 +14,22 @@ $HEADER_HEIGHT: 72px;
     height: $HEADER_HEIGHT;
     top: 0;
     padding: 0 24px;
-    position: fixed;
     display: flex;
     align-items: center;
     background-color: var.$COLOR_BACKGROUND;
-    @include mixin.card(3);
+    @include mixin.card(1);
     h1 {
       margin: 0;
       color: var.$COLOR_TEXT;
       @include mixin.fl(16, 24);
       @include mixin.hover;
+      a {
+        padding: 12px;
+      }
+    }
+    &Fixed {
+      position: fixed;
+      @include mixin.card(2);
     }
   }
   &Navi {
