@@ -22,8 +22,11 @@
       color: var.$COLOR_ERROR;
       border: 1px solid var.$COLOR_ERROR;
       border-radius: 4px;
-      // order: -1;
     }
+  }
+  &Hint {
+    padding-left: 6px;
+    @include mixin.fl(12, 20);
   }
   &Error {
     margin: 4px 0 0;

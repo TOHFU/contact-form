@@ -62,7 +62,7 @@
     @include mixin.accessibleFocus;
     .HasError & {
       border-color: var.$COLOR_ERROR;
-      @include mixin.accessibleFocus(var.$COLOR_ERROR);
+      @include mixin.accessibleFocus(var.$COLOR_TAP_HIGHLIGHT_ERROR);
     }
   }
   &Label {

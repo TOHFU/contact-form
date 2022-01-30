@@ -69,9 +69,6 @@ exports[`Storyshots Components/Card Basic 1`] = `
       Card Title
     </h3>
   </div>
-  <div
-    className="CardContent"
-  />
 </section>
 `;
 

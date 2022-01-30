@@ -6,6 +6,7 @@
   position: relative;
   &Text {
     width: 100%;
+    min-height: 10em;
     padding: 1em 10px;
     color: var.$COLOR_TEXT;
     @include mixin.fl(16, 24);
@@ -22,7 +23,7 @@
     @include mixin.accessibleFocus;
     .HasError & {
       border-color: var.$COLOR_ERROR;
-      @include mixin.accessibleFocus(var.$COLOR_ERROR);
+      @include mixin.accessibleFocus(var.$COLOR_TAP_HIGHLIGHT_ERROR);
     }
   }
 }

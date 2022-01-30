@@ -48,182 +48,193 @@ const ContactInputContainer: React.FC<Props> = ({ formValues, onConfirm }) => {
 
   const onSubmit = handleSubmit((data) => {
     onConfirm(data);
-    console.log(data);
   });
 
   return (
     <form className={styles.ContactInput} onSubmit={onSubmit}>
-      <Card className={styles.ContactInputCard} title={'基本情報'}>
-        <>
-          <div className={styles.ContactInputColumn}>
-            <Controller
-              name="firstName"
-              control={control}
-              render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
-                <Field className={styles.ContactInputField} id={name} label={'姓'} error={error?.message} required={true}>
-                  <TextInput value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
-                </Field>
-              )}
-            />
-            <Controller
-              name="lastName"
-              control={control}
-              render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
-                <Field className={styles.ContactInputField} id={name} label={'名'} error={error?.message} required={true}>
-                  <TextInput value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
-                </Field>
-              )}
-            />
-          </div>
-          <div className={styles.ContactInputColumn}>
-            <Controller
-              name="firstNameKana"
-              control={control}
-              render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
-                <Field className={styles.ContactInputField} id={name} label={'せい'} error={error?.message} required={true}>
-                  <TextInput value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
-                </Field>
-              )}
-            />
-            <Controller
-              name="lastNameKana"
-              control={control}
-              render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
-                <Field className={styles.ContactInputField} id={name} label={'めい'} error={error?.message} required={true}>
-                  <TextInput value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
-                </Field>
-              )}
-            />
-          </div>
-          <Controller
-            name="company"
-            control={control}
-            render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
-              <Field className={styles.ContactInputField} id={name} label={'社名'} error={error?.message}>
-                <TextInput value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
-              </Field>
-            )}
-          />
-          <Controller
-            name="email"
-            control={control}
-            render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
-              <Field
-                className={styles.ContactInputField}
-                id={name}
-                label={'メールアドレス'}
-                error={error?.message}
-                required={true}
-              >
-                <TextInput value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
-              </Field>
-            )}
-          />
-          <Controller
-            name="postalcode"
-            control={control}
-            render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
-              <Field className={styles.ContactInputField} id={name} label={'郵便番号'} error={error?.message}>
-                <TextInput value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
-              </Field>
-            )}
-          />
-          <Controller
-            name="address"
-            control={control}
-            render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
-              <Field className={styles.ContactInputField} id={name} label={'住所'} error={error?.message}>
-                <TextInput value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
-              </Field>
-            )}
-          />
-          <Controller
-            name="phone"
-            control={control}
-            render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
-              <Field className={styles.ContactInputField} id={name} label={'電話番号'} error={error?.message}>
-                <TextInput value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
-              </Field>
-            )}
-          />
-        </>
-      </Card>
-      <Card className={styles.ContactInputCard} title={'お問い合わせ内容'}>
-        <>
-          <Controller
-            name="service"
-            control={control}
-            render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
-              <Field
-                className={styles.ContactInputField}
-                id={name}
-                label={'どの製品について'}
-                error={error?.message}
-                required={true}
-              >
-                <SelectInput options={Services} value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
-              </Field>
-            )}
-          />
-          <Controller
-            name="title"
-            control={control}
-            render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
-              <Field
-                className={styles.ContactInputField}
-                id={name}
-                label={'お問い合わせ件名'}
-                error={error?.message}
-                required={true}
-              >
-                <TextInput value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
-              </Field>
-            )}
-          />
-          <Controller
-            name="content"
-            control={control}
-            render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
-              <Field
-                className={styles.ContactInputField}
-                id={name}
-                label={'お問い合わせ内容'}
-                error={error?.message}
-                required={true}
-              >
-                <TextAreaInput value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} rows={10} />
-              </Field>
-            )}
-          />
-        </>
-      </Card>
       <Card className={styles.ContactInputCard}>
-        <>
-          <Controller
-            name="agreement"
-            control={control}
-            render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
-              <Field
-                className={styles.ContactInputField}
-                id={name}
-                label={'個人情報の保持の同意'}
-                error={error?.message}
-                required={true}
-              >
-                <CheckInput
-                  checked={value}
-                  text={'個人情報の保持に同意する'}
-                  onChange={onChange}
-                  onBlur={onBlur}
-                  inputRef={ref}
-                />
-              </Field>
-            )}
-          />
-          <div className={styles.ContactInputButton}>
-            <Button type={'submit'} label={'確認画面へ'} arrow={undefined} />
+        <div className={styles.ContactInputCardInner}>
+          <div className={`${styles.ContactInputContent} ${styles.ContactInputContentBasic}`}>
+            <h4 className={styles.ContactInputTitle}>基本情報</h4>
+            <div className={styles.ContactInputColumn}>
+              <Controller
+                name="firstName"
+                control={control}
+                render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
+                  <Field className={styles.ContactInputField} id={name} label={'姓'} error={error?.message} required={true}>
+                    <TextInput value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
+                  </Field>
+                )}
+              />
+              <Controller
+                name="lastName"
+                control={control}
+                render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
+                  <Field className={styles.ContactInputField} id={name} label={'名'} error={error?.message} required={true}>
+                    <TextInput value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
+                  </Field>
+                )}
+              />
+            </div>
+            <div className={styles.ContactInputColumn}>
+              <Controller
+                name="firstNameKana"
+                control={control}
+                render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
+                  <Field className={styles.ContactInputField} id={name} label={'せい'} error={error?.message} required={true}>
+                    <TextInput value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
+                  </Field>
+                )}
+              />
+              <Controller
+                name="lastNameKana"
+                control={control}
+                render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
+                  <Field className={styles.ContactInputField} id={name} label={'めい'} error={error?.message} required={true}>
+                    <TextInput value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
+                  </Field>
+                )}
+              />
+            </div>
+            <Controller
+              name="company"
+              control={control}
+              render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
+                <Field className={styles.ContactInputField} id={name} label={'社名'} error={error?.message}>
+                  <TextInput value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
+                </Field>
+              )}
+            />
+            <Controller
+              name="email"
+              control={control}
+              render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
+                <Field
+                  className={styles.ContactInputField}
+                  id={name}
+                  label={'メールアドレス'}
+                  error={error?.message}
+                  required={true}
+                >
+                  <TextInput value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
+                </Field>
+              )}
+            />
+            <Controller
+              name="postalcode"
+              control={control}
+              render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
+                <Field
+                  className={styles.ContactInputField}
+                  id={name}
+                  label={'郵便番号'}
+                  hint={'ハイフン不要'}
+                  error={error?.message}
+                >
+                  <TextInput type={'tel'} value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
+                </Field>
+              )}
+            />
+            <Controller
+              name="address"
+              control={control}
+              render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
+                <Field className={styles.ContactInputField} id={name} label={'住所'} error={error?.message}>
+                  <TextInput value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
+                </Field>
+              )}
+            />
+            <Controller
+              name="phone"
+              control={control}
+              render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
+                <Field
+                  className={styles.ContactInputField}
+                  id={name}
+                  label={'電話番号'}
+                  hint={'ハイフン不要'}
+                  error={error?.message}
+                >
+                  <TextInput type={'tel'} value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
+                </Field>
+              )}
+            />
           </div>
-        </>
+          <div className={`${styles.ContactInputContent} ${styles.ContactInputContentDetail}`}>
+            <h4 className={styles.ContactInputTitle}>お問い合わせ情報</h4>
+            <Controller
+              name="service"
+              control={control}
+              render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
+                <Field
+                  className={styles.ContactInputField}
+                  id={name}
+                  label={'どの製品について'}
+                  error={error?.message}
+                  required={true}
+                >
+                  <SelectInput options={Services} value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
+                </Field>
+              )}
+            />
+            <Controller
+              name="title"
+              control={control}
+              render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
+                <Field
+                  className={styles.ContactInputField}
+                  id={name}
+                  label={'お問い合わせ件名'}
+                  error={error?.message}
+                  required={true}
+                >
+                  <TextInput value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} />
+                </Field>
+              )}
+            />
+            <Controller
+              name="content"
+              control={control}
+              render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
+                <Field
+                  className={styles.ContactInputField}
+                  id={name}
+                  label={'お問い合わせ内容'}
+                  error={error?.message}
+                  required={true}
+                >
+                  <TextAreaInput value={value} onChange={onChange} onBlur={onBlur} inputRef={ref} rows={10} />
+                </Field>
+              )}
+            />
+            <div className={styles.ContactInputFoot}>
+              <Controller
+                name="agreement"
+                control={control}
+                render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => (
+                  <Field
+                    className={styles.ContactInputField}
+                    id={name}
+                    label={'個人情報の保持の同意'}
+                    error={error?.message}
+                    required={true}
+                  >
+                    <CheckInput
+                      checked={value}
+                      text={'個人情報の保持に同意する'}
+                      onChange={onChange}
+                      onBlur={onBlur}
+                      inputRef={ref}
+                    />
+                  </Field>
+                )}
+              />
+              <div className={styles.ContactInputButton}>
+                <Button type={'submit'} label={'確認画面へ'} />
+              </div>
+            </div>
+          </div>
+        </div>
       </Card>
     </form>
   );

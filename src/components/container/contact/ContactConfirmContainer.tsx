@@ -13,6 +13,12 @@ type Props = {
 const ContactConfirmContainer: React.FC<Props> = ({ formValues, onBack, onSubmit }) => {
   const service = Services.find((item) => item.value === formValues.service)?.label;
 
+  const handleSubmit = () => {
+    // FIXME: API送信
+    console.log(formValues);
+    onSubmit();
+  };
+
   return (
     <div className={styles.ContactConfirm}>
       <div className={styles.ContactConfirmCard}>
@@ -56,7 +62,7 @@ const ContactConfirmContainer: React.FC<Props> = ({ formValues, onBack, onSubmit
         </dl>
         <div className={styles.ContactConfirmButton}>
           <Button type={'button'} label={'修正する'} onClick={onBack} />
-          <Button type={'submit'} label={'送信する'} onClick={onSubmit} />
+          <Button type={'submit'} label={'送信する'} onClick={handleSubmit} />
         </div>
       </div>
     </div>

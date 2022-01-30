@@ -14,7 +14,7 @@ const Button: React.FC<Props> = ({ title, className = '', children }) => {
           <h3 className={styles.CardTitle}>{title}</h3>
         </div>
       )}
-      <div className={styles.CardContent}>{children}</div>
+      {children}
     </section>
   );
 };

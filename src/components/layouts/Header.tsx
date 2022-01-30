@@ -1,6 +1,7 @@
 import { ChangeEvent } from 'react';
 import { useToggle } from 'react-use';
 
+import { CSSTransition } from 'react-transition-group';
 
 import useDarkMode from '@/hooks/useDarkMode';
 import Link from 'next/link';

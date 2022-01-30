@@ -3,9 +3,9 @@
 // ========================
 
 // breakpoint
-$BREAKPOINT: 768px;
+$BREAKPOINT: 960px;
 
-$WIDTH_MAIN: 1024px;
+$WIDTH_MAIN: 1280px;
 
 // z-index
 $Z_INDEX_HEADER: 100;
@@ -37,6 +37,7 @@ $COLOR_PLACEHOLDER: var(--color-placeholder);
 
 // action
 $COLOR_TAP_HIGHLIGHT: var(--color-tap-highlight);
+$COLOR_TAP_HIGHLIGHT_ERROR: var(--color-tap-highlight-error);
 
 $COLOR_DARK: var(--color-dark);
 $COLOR_LIGHT: var(--color-light);

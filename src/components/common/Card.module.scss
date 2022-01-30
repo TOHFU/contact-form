@@ -11,9 +11,6 @@
   &Head {
     padding: 64px 40px 12px;
   }
-  &Content {
-    padding: 40px;
-  }
   &Title {
     margin: 0;
     @include mixin.fls(34, 34, 50);
