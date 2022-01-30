@@ -53,7 +53,7 @@ const ContactInputContainer: React.FC<Props> = ({ formValues, onConfirm }) => {
 
   return (
     <form className={styles.ContactInput} onSubmit={onSubmit}>
-      <Card title={'基本情報'}>
+      <Card className={styles.ContactInputCard} title={'基本情報'}>
         <>
           <div className={styles.ContactInputColumn}>
             <Controller
@@ -148,7 +148,7 @@ const ContactInputContainer: React.FC<Props> = ({ formValues, onConfirm }) => {
           />
         </>
       </Card>
-      <Card title={'お問い合わせ内容'}>
+      <Card className={styles.ContactInputCard} title={'お問い合わせ内容'}>
         <>
           <Controller
             name="service"
@@ -197,7 +197,7 @@ const ContactInputContainer: React.FC<Props> = ({ formValues, onConfirm }) => {
           />
         </>
       </Card>
-      <Card>
+      <Card className={styles.ContactInputCard}>
         <>
           <Controller
             name="agreement"

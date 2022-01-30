@@ -5,7 +5,7 @@
 .Card {
   width: 100%;
   border-radius: 4px;
-  @include mixin.card(1);
+  @include mixin.card(1, black, 40px);
   background-color: var.$COLOR_BACKGROUND;
   color: var.$COLOR_TEXT;
   &Head {

@@ -3,17 +3,11 @@
 @use '@/styles/foundations/breakpoint' as bp;
 
 .ContactInput {
+  max-width: 960px;
+  margin: 0 auto;
   &Card {
     width: 100%;
-    max-width: 768px;
     margin: 40px auto 0;
-    padding: 40px;
-    background-color: var.$COLOR_BACKGROUND;
-    @include mixin.card(3);
-    &Title {
-      @include mixin.fls(34, 34, 50);
-      font-weight: 700;
-    }
   }
   &Field {
     margin: 16px 0 0;

@@ -1,14 +1,20 @@
+import { ChangeEvent } from 'react';
+import { useToggle } from 'react-use';
+
+
 import useDarkMode from '@/hooks/useDarkMode';
 import Link from 'next/link';
-import { ChangeEvent } from 'react';
 import CheckInput from '../common/CheckInput';
 import styles from './Header.module.scss';
 
 const Header: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useDarkMode();
+  const [isShowMenu, toggleShowMenu] = useToggle(false);
+
   const handleClickDarkMode = (event: ChangeEvent<HTMLInputElement>) => {
     setIsDarkMode(event.target.checked);
   };
+
   return (
     <header className={styles.Header}>
       <div className={styles.HeaderInner}>
@@ -17,15 +23,31 @@ const Header: React.FC = () => {
             <a>contact-form</a>
           </Link>
         </h1>
-        <CheckInput text={'switch dark mode'} checked={!!isDarkMode} onChange={handleClickDarkMode} />
         <nav className={styles.HeaderNavi}>
-          <ul>
-            <li>
-              <Link href={{ pathname: '/' }}>
-                <a className={styles.HeaderNaviLink}>TOP</a>
-              </Link>
-            </li>
-          </ul>
+          <button
+            type={'button'}
+            className={`${styles.HeaderHumburger} ${isShowMenu ? styles.HeaderHumburgerOpen : ''}`}
+            onClick={toggleShowMenu}
+          >
+            <span></span>
+          </button>
+          {isShowMenu && (
+            <ul className={styles.HeaderMenu}>
+              <li>
+                <Link href={{ pathname: '/' }}>
+                  <a className={styles.HeaderMenuLink}>TOP</a>
+                </Link>
+              </li>
+              <li>
+                <Link href={{ pathname: '/contact' }}>
+                  <a className={styles.HeaderMenuLink}>CONTACT</a>
+                </Link>
+              </li>
+              <li>
+                <CheckInput text={'switch dark mode'} checked={!!isDarkMode} onChange={handleClickDarkMode} />
+              </li>
+            </ul>
+          )}
         </nav>
       </div>
     </header>

@@ -58,7 +58,7 @@ exports[`Storyshots Components/Button With Prev Icon 1`] = `
 
 exports[`Storyshots Components/Card Basic 1`] = `
 <section
-  className="Card"
+  className="Card "
 >
   <div
     className="CardHead"
