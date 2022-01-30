@@ -56,6 +56,25 @@ exports[`Storyshots Components/Button With Prev Icon 1`] = `
 </button>
 `;
 
+exports[`Storyshots Components/Card Basic 1`] = `
+<section
+  className="Card"
+>
+  <div
+    className="CardHead"
+  >
+    <h3
+      className="CardTitle"
+    >
+      Card Title
+    </h3>
+  </div>
+  <div
+    className="CardContent"
+  />
+</section>
+`;
+
 exports[`Storyshots Components/CheckInput Checked 1`] = `
 <label
   className="CheckInput  "
@@ -177,11 +196,6 @@ exports[`Storyshots Components/SelectInput Basic 1`] = `
     className="SelectInputSelect"
     value=""
   >
-    <option
-      value=""
-    >
-      選択してください
-    </option>
     <option
       value=""
     >

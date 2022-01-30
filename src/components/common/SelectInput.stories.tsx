@@ -15,10 +15,6 @@ export const Basic = Template.bind({});
 Basic.args = {
   options: [
     {
-      value: '',
-      label: '選択してください',
-    },
-    {
       value: 'serviceA',
       label: 'Aサービスについて',
     },
