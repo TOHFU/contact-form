@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction, useEffect } from 'react';
 import { useLocalStorage, useMedia } from 'react-use';
 
 const useDarkMode = (): [boolean | undefined, Dispatch<SetStateAction<boolean | undefined>>] => {
-  const [enabledState, setEnabledState] = useLocalStorage<boolean>('dark-mode-enabled', false);
+  const [enabledState, setEnabledState] = useLocalStorage<boolean>('dark-mode-enabled', undefined);
   const prefersDarkMode = useMedia('(prefers-color-scheme: dark)', false);
 
   // OS設定より手動設定した値を優先する
@@ -17,7 +17,7 @@ const useDarkMode = (): [boolean | undefined, Dispatch<SetStateAction<boolean | 
     }
   }, [isEnabledDarkmode]);
 
-  return [enabledState, setEnabledState];
+  return [isEnabledDarkmode, setEnabledState];
 };
 
 export default useDarkMode;
