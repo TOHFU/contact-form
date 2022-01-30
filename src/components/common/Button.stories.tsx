@@ -16,6 +16,12 @@ Basic.args = {
   label: 'button',
 };
 
+export const Secondary = Template.bind({});
+Secondary.args = {
+  label: 'secondary button',
+  fill: false,
+};
+
 export const Rounded = Template.bind({});
 Rounded.args = {
   label: 'rounded button',

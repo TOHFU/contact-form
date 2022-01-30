@@ -28,6 +28,20 @@ exports[`Storyshots Components/Button Rounded 1`] = `
 </button>
 `;
 
+exports[`Storyshots Components/Button Secondary 1`] = `
+<button
+  className="Button ButtonSecondary"
+  disabled={false}
+  type="button"
+>
+  <span
+    className="ButtonLabel"
+  >
+    secondary button
+  </span>
+</button>
+`;
+
 exports[`Storyshots Components/Button With Next Icon 1`] = `
 <button
   className="Button ButtonNext"
