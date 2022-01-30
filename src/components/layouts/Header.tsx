@@ -1,7 +1,14 @@
+import useDarkMode from '@/hooks/useDarkMode';
 import Link from 'next/link';
+import { ChangeEvent } from 'react';
+import CheckInput from '../common/CheckInput';
 import styles from './Header.module.scss';
 
 const Header: React.FC = () => {
+  const [isDarkMode, setIsDarkMode] = useDarkMode();
+  const handleClickDarkMode = (event: ChangeEvent<HTMLInputElement>) => {
+    setIsDarkMode(event.target.checked);
+  };
   return (
     <header className={styles.Header}>
       <div className={styles.HeaderInner}>
@@ -10,6 +17,7 @@ const Header: React.FC = () => {
             <a>contact-form</a>
           </Link>
         </h1>
+        <CheckInput text={'switch dark mode'} checked={!!isDarkMode} onChange={handleClickDarkMode} />
         <nav className={styles.HeaderNavi}>
           <ul>
             <li>
