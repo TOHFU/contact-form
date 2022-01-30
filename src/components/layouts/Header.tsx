@@ -1,8 +1,6 @@
 import { ChangeEvent } from 'react';
 import { useToggle } from 'react-use';
 
-import { CSSTransition } from 'react-transition-group';
-
 import useDarkMode from '@/hooks/useDarkMode';
 import Link from 'next/link';
 import CheckInput from '../common/CheckInput';
@@ -14,6 +12,11 @@ const Header: React.FC = () => {
 
   const handleClickDarkMode = (event: ChangeEvent<HTMLInputElement>) => {
     setIsDarkMode(event.target.checked);
+    toggleShowMenu(false);
+  };
+
+  const handleMenuClick = () => {
+    toggleShowMenu(false);
   };
 
   return (
@@ -36,12 +39,16 @@ const Header: React.FC = () => {
             <ul className={styles.HeaderMenu}>
               <li>
                 <Link href={{ pathname: '/' }}>
-                  <a className={styles.HeaderMenuLink}>TOP</a>
+                  <a className={styles.HeaderMenuLink} onClick={handleMenuClick}>
+                    TOP
+                  </a>
                 </Link>
               </li>
               <li>
                 <Link href={{ pathname: '/contact' }}>
-                  <a className={styles.HeaderMenuLink}>CONTACT</a>
+                  <a className={styles.HeaderMenuLink} onClick={handleMenuClick}>
+                    CONTACT
+                  </a>
                 </Link>
               </li>
               <li>
