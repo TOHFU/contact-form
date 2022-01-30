@@ -1,0 +1,22 @@
+@use '@/styles/foundations/variables' as var;
+@use '@/styles/foundations/mixins' as mixin;
+@use '@/styles/foundations/breakpoint' as bp;
+
+.Card {
+  width: 100%;
+  border-radius: 4px;
+  @include mixin.card(1);
+  background-color: var.$COLOR_BACKGROUND;
+  color: var.$COLOR_TEXT;
+  &Head {
+    padding: 64px 40px 12px;
+  }
+  &Content {
+    padding: 40px;
+  }
+  &Title {
+    margin: 0;
+    @include mixin.fls(34, 34, 50);
+    font-weight: 700;
+  }
+}
