@@ -294,3 +294,1278 @@ exports[`Storyshots Components/TextInput Error 1`] = `
   />
 </div>
 `;
+
+exports[`Storyshots Container/ContactCompleteContainer Basic 1`] = `
+<div
+  className="ContactComplete"
+>
+  <section
+    className="Card ContactCompleteCard"
+  >
+    <div
+      className="CardHead"
+    >
+      <h3
+        className="CardTitle"
+      >
+        ありがとうございました。
+      </h3>
+    </div>
+    <div
+      className="ContactCompleteContent"
+    >
+      <p>
+        お問い合わせ頂いた内容につきまして、 担当者から２・３営業日以内にご連絡させて頂きます。
+      </p>
+      <div
+        className="ContactCompleteButton"
+      >
+        <button
+          className="Button ButtonNext"
+          disabled={false}
+          type="button"
+        >
+          <span
+            className="ButtonLabel"
+          >
+            TOPへ
+          </span>
+        </button>
+      </div>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Storyshots Container/ContactConfirmContainer Basic 1`] = `
+<div
+  className="ContactConfirm"
+>
+  <section
+    className="Card ContactConfirmCard"
+  >
+    <div
+      className="ContactConfirmCardInner"
+    >
+      <div
+        className="ContactConfirmContent ContactConfirmContentBasic"
+      >
+        <h4
+          className="ContactConfirmTitle"
+        >
+          基本情報
+        </h4>
+        <dl
+          className="ContactConfirmList"
+        >
+          <dt>
+            姓
+          </dt>
+          <dd>
+            
+          </dd>
+          <dt>
+            名
+          </dt>
+          <dd>
+            
+          </dd>
+          <dt>
+            せい
+          </dt>
+          <dd>
+            
+          </dd>
+          <dt>
+            めい
+          </dt>
+          <dd>
+            
+          </dd>
+          <dt>
+            社名
+          </dt>
+          <dd>
+            -
+          </dd>
+          <dt>
+            メールアドレス
+          </dt>
+          <dd>
+            
+          </dd>
+          <dt>
+            郵便番号
+          </dt>
+          <dd>
+            -
+          </dd>
+          <dt>
+            住所
+          </dt>
+          <dd>
+            -
+          </dd>
+          <dt>
+            電話番号
+          </dt>
+          <dd>
+            -
+          </dd>
+        </dl>
+      </div>
+      <div
+        className="ContactConfirmContent ContactConfirmContentDetail"
+      >
+        <h4
+          className="ContactConfirmTitle"
+        >
+          お問い合わせ情報
+        </h4>
+        <dl
+          className="ContactConfirmList"
+        >
+          <dt>
+            どの製品について
+          </dt>
+          <dd />
+          <dt>
+            問い合わせ件名
+          </dt>
+          <dd>
+            
+          </dd>
+          <dt>
+            問い合わせ内容
+          </dt>
+          <dd>
+            
+          </dd>
+        </dl>
+        <div
+          className="ContactConfirmFoot"
+        >
+          <dl
+            className="ContactConfirmList"
+          >
+            <dt>
+              個人情報の保持の同意
+            </dt>
+            <dd />
+          </dl>
+          <div
+            className="ContactConfirmButton"
+          >
+            <button
+              className="Button ButtonPrev ButtonSecondary"
+              disabled={false}
+              type="button"
+            >
+              <span
+                className="ButtonLabel"
+              >
+                修正する
+              </span>
+            </button>
+            <button
+              className="Button ButtonNext"
+              disabled={false}
+              onClick={[Function]}
+              type="submit"
+            >
+              <span
+                className="ButtonLabel"
+              >
+                送信する
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Storyshots Container/ContactInputContainer Basic 1`] = `
+<form
+  className="ContactInput"
+  onSubmit={[Function]}
+>
+  <section
+    className="Card ContactInputCard"
+  >
+    <div
+      className="ContactInputCardInner"
+    >
+      <div
+        className="ContactInputContent ContactInputContentBasic"
+      >
+        <h4
+          className="ContactInputTitle"
+        >
+          基本情報
+        </h4>
+        <div
+          className="ContactInputColumn"
+        >
+          <div
+            className="Field ContactInputField "
+          >
+            <label
+              className="FieldLabel"
+              htmlFor="firstName"
+            >
+              <span
+                className="FieldLabelText"
+              >
+                姓
+              </span>
+              <span
+                className="FieldLabelRequired"
+              >
+                必須
+              </span>
+              
+            </label>
+            <div
+              className="TextInput  "
+            >
+              <input
+                aria-invalid={false}
+                aria-label="姓"
+                aria-required={true}
+                className="TextInputText"
+                id="firstName"
+                onBlur={[Function]}
+                onChange={[Function]}
+                type="text"
+                value=""
+              />
+            </div>
+            
+          </div>
+          <div
+            className="Field ContactInputField "
+          >
+            <label
+              className="FieldLabel"
+              htmlFor="lastName"
+            >
+              <span
+                className="FieldLabelText"
+              >
+                名
+              </span>
+              <span
+                className="FieldLabelRequired"
+              >
+                必須
+              </span>
+              
+            </label>
+            <div
+              className="TextInput  "
+            >
+              <input
+                aria-invalid={false}
+                aria-label="名"
+                aria-required={true}
+                className="TextInputText"
+                id="lastName"
+                onBlur={[Function]}
+                onChange={[Function]}
+                type="text"
+                value=""
+              />
+            </div>
+            
+          </div>
+        </div>
+        <div
+          className="ContactInputColumn"
+        >
+          <div
+            className="Field ContactInputField "
+          >
+            <label
+              className="FieldLabel"
+              htmlFor="firstNameKana"
+            >
+              <span
+                className="FieldLabelText"
+              >
+                せい
+              </span>
+              <span
+                className="FieldLabelRequired"
+              >
+                必須
+              </span>
+              
+            </label>
+            <div
+              className="TextInput  "
+            >
+              <input
+                aria-invalid={false}
+                aria-label="せい"
+                aria-required={true}
+                className="TextInputText"
+                id="firstNameKana"
+                onBlur={[Function]}
+                onChange={[Function]}
+                type="text"
+                value=""
+              />
+            </div>
+            
+          </div>
+          <div
+            className="Field ContactInputField "
+          >
+            <label
+              className="FieldLabel"
+              htmlFor="lastNameKana"
+            >
+              <span
+                className="FieldLabelText"
+              >
+                めい
+              </span>
+              <span
+                className="FieldLabelRequired"
+              >
+                必須
+              </span>
+              
+            </label>
+            <div
+              className="TextInput  "
+            >
+              <input
+                aria-invalid={false}
+                aria-label="めい"
+                aria-required={true}
+                className="TextInputText"
+                id="lastNameKana"
+                onBlur={[Function]}
+                onChange={[Function]}
+                type="text"
+                value=""
+              />
+            </div>
+            
+          </div>
+        </div>
+        <div
+          className="Field ContactInputField "
+        >
+          <label
+            className="FieldLabel"
+            htmlFor="company"
+          >
+            <span
+              className="FieldLabelText"
+            >
+              社名
+            </span>
+            
+          </label>
+          <div
+            className="TextInput  "
+          >
+            <input
+              aria-invalid={false}
+              aria-label="社名"
+              aria-required={false}
+              className="TextInputText"
+              id="company"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+          </div>
+          
+        </div>
+        <div
+          className="Field ContactInputField "
+        >
+          <label
+            className="FieldLabel"
+            htmlFor="email"
+          >
+            <span
+              className="FieldLabelText"
+            >
+              メールアドレス
+            </span>
+            <span
+              className="FieldLabelRequired"
+            >
+              必須
+            </span>
+            
+          </label>
+          <div
+            className="TextInput  "
+          >
+            <input
+              aria-invalid={false}
+              aria-label="メールアドレス"
+              aria-required={true}
+              className="TextInputText"
+              id="email"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+          </div>
+          
+        </div>
+        <div
+          className="Field ContactInputField "
+        >
+          <label
+            className="FieldLabel"
+            htmlFor="postalcode"
+          >
+            <span
+              className="FieldLabelText"
+            >
+              郵便番号
+            </span>
+            <span
+              className="FieldHint"
+            >
+              ハイフン不要
+            </span>
+          </label>
+          <div
+            className="TextInput  "
+          >
+            <input
+              aria-invalid={false}
+              aria-label="郵便番号"
+              aria-required={false}
+              className="TextInputText"
+              id="postalcode"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="tel"
+              value=""
+            />
+          </div>
+          
+        </div>
+        <div
+          className="Field ContactInputField "
+        >
+          <label
+            className="FieldLabel"
+            htmlFor="address"
+          >
+            <span
+              className="FieldLabelText"
+            >
+              住所
+            </span>
+            
+          </label>
+          <div
+            className="TextInput  "
+          >
+            <input
+              aria-invalid={false}
+              aria-label="住所"
+              aria-required={false}
+              className="TextInputText"
+              id="address"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+          </div>
+          
+        </div>
+        <div
+          className="Field ContactInputField "
+        >
+          <label
+            className="FieldLabel"
+            htmlFor="phone"
+          >
+            <span
+              className="FieldLabelText"
+            >
+              電話番号
+            </span>
+            <span
+              className="FieldHint"
+            >
+              ハイフン不要
+            </span>
+          </label>
+          <div
+            className="TextInput  "
+          >
+            <input
+              aria-invalid={false}
+              aria-label="電話番号"
+              aria-required={false}
+              className="TextInputText"
+              id="phone"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="tel"
+              value=""
+            />
+          </div>
+          
+        </div>
+      </div>
+      <div
+        className="ContactInputContent ContactInputContentDetail"
+      >
+        <h4
+          className="ContactInputTitle"
+        >
+          お問い合わせ情報
+        </h4>
+        <div
+          className="Field ContactInputField "
+        >
+          <label
+            className="FieldLabel"
+            htmlFor="service"
+          >
+            <span
+              className="FieldLabelText"
+            >
+              どの製品について
+            </span>
+            <span
+              className="FieldLabelRequired"
+            >
+              必須
+            </span>
+            
+          </label>
+          <div
+            className="SelectInput  "
+          >
+            <select
+              aria-invalid={false}
+              aria-label="どの製品について"
+              aria-required={true}
+              className="SelectInputSelect"
+              id="service"
+              onBlur={[Function]}
+              onChange={[Function]}
+              value=""
+            >
+              <option
+                value=""
+              >
+                選択してください
+              </option>
+              <option
+                value="serviceA"
+              >
+                Aサービスについて
+              </option>
+              <option
+                value="serviceB"
+              >
+                Bサービスについて
+              </option>
+              <option
+                value="serviceC"
+              >
+                Cサービスについて
+              </option>
+            </select>
+          </div>
+          
+        </div>
+        <div
+          className="Field ContactInputField "
+        >
+          <label
+            className="FieldLabel"
+            htmlFor="title"
+          >
+            <span
+              className="FieldLabelText"
+            >
+              お問い合わせ件名
+            </span>
+            <span
+              className="FieldLabelRequired"
+            >
+              必須
+            </span>
+            
+          </label>
+          <div
+            className="TextInput  "
+          >
+            <input
+              aria-invalid={false}
+              aria-label="お問い合わせ件名"
+              aria-required={true}
+              className="TextInputText"
+              id="title"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+          </div>
+          
+        </div>
+        <div
+          className="Field ContactInputField "
+        >
+          <label
+            className="FieldLabel"
+            htmlFor="content"
+          >
+            <span
+              className="FieldLabelText"
+            >
+              お問い合わせ内容
+            </span>
+            <span
+              className="FieldLabelRequired"
+            >
+              必須
+            </span>
+            
+          </label>
+          <div
+            className="TextAreaInput  "
+          >
+            <textarea
+              aria-invalid={false}
+              aria-label="お問い合わせ内容"
+              aria-required={true}
+              className="TextAreaInputText"
+              id="content"
+              onBlur={[Function]}
+              onChange={[Function]}
+              rows={10}
+            />
+          </div>
+          
+        </div>
+        <div
+          className="ContactInputFoot"
+        >
+          <div
+            className="Field ContactInputField "
+          >
+            <div
+              className="FieldLabel"
+            >
+              <span
+                className="FieldLabelText"
+              >
+                個人情報の保持の同意
+              </span>
+              <span
+                className="FieldLabelRequired"
+              >
+                必須
+              </span>
+              
+            </div>
+            <label
+              className="CheckInput  "
+            >
+              <input
+                aria-invalid={false}
+                aria-label="個人情報の保持に同意する"
+                aria-required={true}
+                checked={false}
+                className="CheckInputCheck"
+                id="agreement"
+                label="個人情報の保持の同意"
+                onBlur={[Function]}
+                onChange={[Function]}
+                type="checkbox"
+              />
+              <span
+                className="CheckInputLabel"
+              >
+                個人情報の保持に同意する
+              </span>
+            </label>
+            
+          </div>
+          <div
+            className="ContactInputButton"
+          >
+            <button
+              className="Button ButtonNext"
+              disabled={false}
+              type="submit"
+            >
+              <span
+                className="ButtonLabel"
+              >
+                確認画面へ
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</form>
+`;
+
+exports[`Storyshots Container/ContactInputContainer Filled 1`] = `
+<form
+  className="ContactInput"
+  onSubmit={[Function]}
+>
+  <section
+    className="Card ContactInputCard"
+  >
+    <div
+      className="ContactInputCardInner"
+    >
+      <div
+        className="ContactInputContent ContactInputContentBasic"
+      >
+        <h4
+          className="ContactInputTitle"
+        >
+          基本情報
+        </h4>
+        <div
+          className="ContactInputColumn"
+        >
+          <div
+            className="Field ContactInputField "
+          >
+            <label
+              className="FieldLabel"
+              htmlFor="firstName"
+            >
+              <span
+                className="FieldLabelText"
+              >
+                姓
+              </span>
+              <span
+                className="FieldLabelRequired"
+              >
+                必須
+              </span>
+              
+            </label>
+            <div
+              className="TextInput  "
+            >
+              <input
+                aria-invalid={false}
+                aria-label="姓"
+                aria-required={true}
+                className="TextInputText"
+                id="firstName"
+                onBlur={[Function]}
+                onChange={[Function]}
+                type="text"
+                value="阿夫利"
+              />
+            </div>
+            
+          </div>
+          <div
+            className="Field ContactInputField "
+          >
+            <label
+              className="FieldLabel"
+              htmlFor="lastName"
+            >
+              <span
+                className="FieldLabelText"
+              >
+                名
+              </span>
+              <span
+                className="FieldLabelRequired"
+              >
+                必須
+              </span>
+              
+            </label>
+            <div
+              className="TextInput  "
+            >
+              <input
+                aria-invalid={false}
+                aria-label="名"
+                aria-required={true}
+                className="TextInputText"
+                id="lastName"
+                onBlur={[Function]}
+                onChange={[Function]}
+                type="text"
+                value="太郎"
+              />
+            </div>
+            
+          </div>
+        </div>
+        <div
+          className="ContactInputColumn"
+        >
+          <div
+            className="Field ContactInputField "
+          >
+            <label
+              className="FieldLabel"
+              htmlFor="firstNameKana"
+            >
+              <span
+                className="FieldLabelText"
+              >
+                せい
+              </span>
+              <span
+                className="FieldLabelRequired"
+              >
+                必須
+              </span>
+              
+            </label>
+            <div
+              className="TextInput  "
+            >
+              <input
+                aria-invalid={false}
+                aria-label="せい"
+                aria-required={true}
+                className="TextInputText"
+                id="firstNameKana"
+                onBlur={[Function]}
+                onChange={[Function]}
+                type="text"
+                value="たなか"
+              />
+            </div>
+            
+          </div>
+          <div
+            className="Field ContactInputField "
+          >
+            <label
+              className="FieldLabel"
+              htmlFor="lastNameKana"
+            >
+              <span
+                className="FieldLabelText"
+              >
+                めい
+              </span>
+              <span
+                className="FieldLabelRequired"
+              >
+                必須
+              </span>
+              
+            </label>
+            <div
+              className="TextInput  "
+            >
+              <input
+                aria-invalid={false}
+                aria-label="めい"
+                aria-required={true}
+                className="TextInputText"
+                id="lastNameKana"
+                onBlur={[Function]}
+                onChange={[Function]}
+                type="text"
+                value="たろう"
+              />
+            </div>
+            
+          </div>
+        </div>
+        <div
+          className="Field ContactInputField "
+        >
+          <label
+            className="FieldLabel"
+            htmlFor="company"
+          >
+            <span
+              className="FieldLabelText"
+            >
+              社名
+            </span>
+            
+          </label>
+          <div
+            className="TextInput  "
+          >
+            <input
+              aria-invalid={false}
+              aria-label="社名"
+              aria-required={false}
+              className="TextInputText"
+              id="company"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="text"
+              value="株式会社サンプル"
+            />
+          </div>
+          
+        </div>
+        <div
+          className="Field ContactInputField "
+        >
+          <label
+            className="FieldLabel"
+            htmlFor="email"
+          >
+            <span
+              className="FieldLabelText"
+            >
+              メールアドレス
+            </span>
+            <span
+              className="FieldLabelRequired"
+            >
+              必須
+            </span>
+            
+          </label>
+          <div
+            className="TextInput  "
+          >
+            <input
+              aria-invalid={false}
+              aria-label="メールアドレス"
+              aria-required={true}
+              className="TextInputText"
+              id="email"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="text"
+              value="test@example.com"
+            />
+          </div>
+          
+        </div>
+        <div
+          className="Field ContactInputField "
+        >
+          <label
+            className="FieldLabel"
+            htmlFor="postalcode"
+          >
+            <span
+              className="FieldLabelText"
+            >
+              郵便番号
+            </span>
+            <span
+              className="FieldHint"
+            >
+              ハイフン不要
+            </span>
+          </label>
+          <div
+            className="TextInput  "
+          >
+            <input
+              aria-invalid={false}
+              aria-label="郵便番号"
+              aria-required={false}
+              className="TextInputText"
+              id="postalcode"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="tel"
+              value="2591107"
+            />
+          </div>
+          
+        </div>
+        <div
+          className="Field ContactInputField "
+        >
+          <label
+            className="FieldLabel"
+            htmlFor="address"
+          >
+            <span
+              className="FieldLabelText"
+            >
+              住所
+            </span>
+            
+          </label>
+          <div
+            className="TextInput  "
+          >
+            <input
+              aria-invalid={false}
+              aria-label="住所"
+              aria-required={false}
+              className="TextInputText"
+              id="address"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="text"
+              value="神奈川県伊勢原市大山355"
+            />
+          </div>
+          
+        </div>
+        <div
+          className="Field ContactInputField "
+        >
+          <label
+            className="FieldLabel"
+            htmlFor="phone"
+          >
+            <span
+              className="FieldLabelText"
+            >
+              電話番号
+            </span>
+            <span
+              className="FieldHint"
+            >
+              ハイフン不要
+            </span>
+          </label>
+          <div
+            className="TextInput  "
+          >
+            <input
+              aria-invalid={false}
+              aria-label="電話番号"
+              aria-required={false}
+              className="TextInputText"
+              id="phone"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="tel"
+              value="00000000000"
+            />
+          </div>
+          
+        </div>
+      </div>
+      <div
+        className="ContactInputContent ContactInputContentDetail"
+      >
+        <h4
+          className="ContactInputTitle"
+        >
+          お問い合わせ情報
+        </h4>
+        <div
+          className="Field ContactInputField "
+        >
+          <label
+            className="FieldLabel"
+            htmlFor="service"
+          >
+            <span
+              className="FieldLabelText"
+            >
+              どの製品について
+            </span>
+            <span
+              className="FieldLabelRequired"
+            >
+              必須
+            </span>
+            
+          </label>
+          <div
+            className="SelectInput  "
+          >
+            <select
+              aria-invalid={false}
+              aria-label="どの製品について"
+              aria-required={true}
+              className="SelectInputSelect"
+              id="service"
+              onBlur={[Function]}
+              onChange={[Function]}
+              value="serviceA"
+            >
+              <option
+                value=""
+              >
+                選択してください
+              </option>
+              <option
+                value="serviceA"
+              >
+                Aサービスについて
+              </option>
+              <option
+                value="serviceB"
+              >
+                Bサービスについて
+              </option>
+              <option
+                value="serviceC"
+              >
+                Cサービスについて
+              </option>
+            </select>
+          </div>
+          
+        </div>
+        <div
+          className="Field ContactInputField "
+        >
+          <label
+            className="FieldLabel"
+            htmlFor="title"
+          >
+            <span
+              className="FieldLabelText"
+            >
+              お問い合わせ件名
+            </span>
+            <span
+              className="FieldLabelRequired"
+            >
+              必須
+            </span>
+            
+          </label>
+          <div
+            className="TextInput  "
+          >
+            <input
+              aria-invalid={false}
+              aria-label="お問い合わせ件名"
+              aria-required={true}
+              className="TextInputText"
+              id="title"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="text"
+              value="ここにテキストが入ります。"
+            />
+          </div>
+          
+        </div>
+        <div
+          className="Field ContactInputField "
+        >
+          <label
+            className="FieldLabel"
+            htmlFor="content"
+          >
+            <span
+              className="FieldLabelText"
+            >
+              お問い合わせ内容
+            </span>
+            <span
+              className="FieldLabelRequired"
+            >
+              必須
+            </span>
+            
+          </label>
+          <div
+            className="TextAreaInput  "
+          >
+            <textarea
+              aria-invalid={false}
+              aria-label="お問い合わせ内容"
+              aria-required={true}
+              className="TextAreaInputText"
+              id="content"
+              onBlur={[Function]}
+              onChange={[Function]}
+              rows={10}
+              value="ここにテキストが入ります。"
+            />
+          </div>
+          
+        </div>
+        <div
+          className="ContactInputFoot"
+        >
+          <div
+            className="Field ContactInputField "
+          >
+            <div
+              className="FieldLabel"
+            >
+              <span
+                className="FieldLabelText"
+              >
+                個人情報の保持の同意
+              </span>
+              <span
+                className="FieldLabelRequired"
+              >
+                必須
+              </span>
+              
+            </div>
+            <label
+              className="CheckInput  "
+            >
+              <input
+                aria-invalid={false}
+                aria-label="個人情報の保持に同意する"
+                aria-required={true}
+                checked={true}
+                className="CheckInputCheck"
+                id="agreement"
+                label="個人情報の保持の同意"
+                onBlur={[Function]}
+                onChange={[Function]}
+                type="checkbox"
+              />
+              <span
+                className="CheckInputLabel"
+              >
+                個人情報の保持に同意する
+              </span>
+            </label>
+            
+          </div>
+          <div
+            className="ContactInputButton"
+          >
+            <button
+              className="Button ButtonNext"
+              disabled={false}
+              type="submit"
+            >
+              <span
+                className="ButtonLabel"
+              >
+                確認画面へ
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</form>
+`;
