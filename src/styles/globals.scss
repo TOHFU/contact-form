@@ -2,6 +2,42 @@
 @use '@/styles/foundations/mixins' as mixin;
 @use '@/styles/foundations/breakpoint' as bp;
 
+:root {
+  --color-primary: #01579b;
+  --color-primary-dark: #002f6c;
+  --color-secondary: #fce4ec;
+  --color-text: #212121;
+  --color-text-light: #eee;
+  --color-background: #fafafa;
+  --color-background-form: #fff;
+  --color-error: #b00020;
+  --color-disabled: #e0e0e0;
+  --color-autofill: #e8f0fe;
+  --color-placeholder: #9e9e9e;
+  --color-tap-highlight: 1, 87, 155;
+  --color-tap-highlight-error: 176, 0, 32;
+  --color-dark: #000;
+  --color-light: #fff;
+}
+
+:root[data-color-scheme='dark'] {
+  --color-primary: #51a3e2;
+  --color-primary-dark: #002f6c;
+  --color-secondary: #2a2a2a;
+  --color-text: #bdc1c6;
+  --color-text-light: #121212;
+  --color-background: #202124;
+  --color-background-form: #121212;
+  --color-error: #cf6679;
+  --color-disabled: #e0e0e0;
+  --color-autofill: #002f6c;
+  --color-placeholder: #9e9e9e;
+  --color-tap-highlight: 81, 163, 226;
+  --color-tap-highlight-error: 176, 0, 32;
+  --color-dark: #fff;
+  --color-light: #000;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -11,6 +47,7 @@ body {
   font-family: var.$FONT_FAMILY;
   font-feature-settings: 'palt';
   font-display: swap;
+  background-color: var.$COLOR_BACKGROUND;
   -webkit-text-size-adjust: 100%;
   color: var.$COLOR_TEXT;
   font-size: 10px;
@@ -22,7 +59,7 @@ body {
 a {
   text-decoration: none;
   color: inherit;
-  -webkit-tap-highlight-color: var.$COLOR_TAP_HIGHLIGHT;
+  -webkit-tap-highlight-color: rgba(var.$COLOR_TAP_HIGHLIGHT, 0.3);
 }
 
 img {

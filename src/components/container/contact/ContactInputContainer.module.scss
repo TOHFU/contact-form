@@ -9,7 +9,7 @@
     margin: 40px auto 0;
     padding: 40px;
     background-color: var.$COLOR_BACKGROUND;
-    @include mixin.card(2);
+    @include mixin.card(3);
     &Title {
       @include mixin.fls(34, 34, 50);
       font-weight: 700;

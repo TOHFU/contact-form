@@ -18,10 +18,13 @@
     &::-ms-input-placeholder {
       color: var.$COLOR_PLACEHOLDER;
     }
+    &:-webkit-autofill {
+      background-color: var.$COLOR_AUTOFILL;
+    }
     @include mixin.accessibleFocus;
     .HasError & {
       border-color: var.$COLOR_ERROR;
-      @include mixin.accessibleFocus(rgba(var.$COLOR_ERROR, 0.3));
+      @include mixin.accessibleFocus(var.$COLOR_ERROR);
     }
   }
 }
