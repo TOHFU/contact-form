@@ -50,6 +50,7 @@
     dd {
       margin: 8px 0 0;
       @include mixin.fl(16, 16);
+      white-space: pre-wrap;
     }
   }
   &Foot {
