@@ -3,23 +3,26 @@
 @use '@/styles/foundations/breakpoint' as bp;
 
 .ContactComplete {
+  max-width: 768px;
+  margin: 0 auto;
   &Card {
     width: 100%;
-    max-width: 768px;
     margin: 40px auto 0;
-    padding: 40px;
-    background-color: var.$COLOR_BACKGROUND;
-    @include mixin.fls(16, 24, 50);
-    @include mixin.card(2);
-    &Title {
-      @include mixin.fls(34, 34, 50);
-      font-weight: 700;
+    @include bp.sp {
+      padding: 20px 12px 12px;
+    }
+  }
+  &Content {
+    padding: 12px 40px 40px;
+    @include mixin.fl(16, 21);
+    @include bp.sp {
+      padding: 20px 12px 20px;
     }
   }
   &Button {
     margin-top: 40px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 0 16px;
   }
 }

@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
 import { ReactElement, useState } from 'react';
+import { useRouter } from 'next/router';
 
 import Head from 'next/head';
 import Layout from '@/components/layouts/Layout';
@@ -27,6 +29,7 @@ export type FormValues = {
 export type FormState = 'input' | 'confirm' | 'complete';
 
 const ContactIndex = () => {
+  const router = useRouter();
   const [formValues, setFormValues] = useState<FormValues>({
     firstName: '',
     lastName: '',
@@ -57,6 +60,10 @@ const ContactIndex = () => {
     setFormState('complete');
   };
 
+  const handleComplete = () => {
+    router.push('/');
+  };
+
   return (
     <>
       <Head>
@@ -67,7 +74,7 @@ const ContactIndex = () => {
         {formState === 'confirm' && (
           <ContactConfirmContainer formValues={formValues} onBack={handleBack} onSubmit={handleSubmit} />
         )}
-        {formState === 'complete' && <ContactCompleteContainer />}
+        {formState === 'complete' && <ContactCompleteContainer onBack={handleComplete} />}
       </div>
     </>
   );

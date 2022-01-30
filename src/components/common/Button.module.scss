@@ -21,9 +21,11 @@
   cursor: pointer;
   transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease;
   @include mixin.accessibleFocus();
-  &:hover {
-    color: var.$COLOR_PRIMARY;
-    background-color: var.$COLOR_BACKGROUND;
+  @include bp.nosp {
+    &:hover {
+      color: var.$COLOR_PRIMARY;
+      background-color: var.$COLOR_BACKGROUND;
+    }
   }
   &Label {
     user-select: none;
@@ -37,9 +39,11 @@
   &Secondary {
     color: var.$COLOR_PRIMARY;
     background: var.$COLOR_BACKGROUND;
-    &:hover {
-      color: var.$COLOR_TEXT_LIGHT;
-      background-color: var.$COLOR_PRIMARY;
+    @include bp.nosp {
+      &:hover {
+        color: var.$COLOR_TEXT_LIGHT;
+        background-color: var.$COLOR_PRIMARY;
+      }
     }
   }
   &Next,

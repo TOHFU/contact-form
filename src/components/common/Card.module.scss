@@ -10,10 +10,16 @@
   color: var.$COLOR_TEXT;
   &Head {
     padding: 64px 40px 12px;
+    @include bp.sp {
+      padding: 20px 12px 12px;
+    }
   }
   &Title {
     margin: 0;
-    @include mixin.fls(34, 34, 50);
+    @include mixin.fls(34, 48, 50);
     font-weight: 700;
+    @include bp.sp {
+      @include mixin.fls(24, 32, 50);
+    }
   }
 }
