@@ -236,7 +236,7 @@ const ContactInputContainer: React.FC<Props> = ({ formValues, onConfirm }) => {
                 )}
               />
               <div className={styles.ContactInputButton}>
-                <Button type={'submit'} arrow={'next'} label={'確認画面へ'} />
+                <Button type={'submit'} arrow={'next'} label={'確認画面へ'} role={'submit'} />
               </div>
             </div>
           </div>
