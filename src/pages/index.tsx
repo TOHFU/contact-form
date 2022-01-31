@@ -55,7 +55,7 @@ const Home = () => {
           <li>郵便番号→住所変換・現在座標からの住所取得</li>
         </ul>
         <div className={styles.Arrow}>
-          <Image src={arrowImage} alt="contact is here." />
+          <Image src={arrowImage} layout={'fill'} alt="contact is here." />
         </div>
       </div>
     </>

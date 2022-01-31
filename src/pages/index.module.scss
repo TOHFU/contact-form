@@ -25,13 +25,16 @@
 }
 
 .Arrow {
+  width: 163px;
+  height: 206px;
   top: 36px;
   right: 24px;
   position: absolute;
   @include bp.sp {
+    width: 90px;
+    height: 114px;
     top: 30px;
     right: 36px;
-    width: 90px;
   }
   :root[data-color-scheme='dark'] & {
     filter: invert(1);
