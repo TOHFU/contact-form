@@ -124,7 +124,7 @@ const ContactInputContainer: React.FC<Props> = ({ formValues, onConfirm }) => {
               name="postalcode"
               control={control}
               render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => {
-                const newVal = value?.replace(/[^0-9]/g, '');
+                const newVal = value?.replace(/[^0-9０-９]/g, '');
                 return (
                   <Field
                     className={styles.ContactInputField}
@@ -151,7 +151,7 @@ const ContactInputContainer: React.FC<Props> = ({ formValues, onConfirm }) => {
               name="phone"
               control={control}
               render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { error } }) => {
-                const newVal = value?.replace(/[^0-9]/g, '');
+                const newVal = value?.replace(/[^0-9０-９]/g, '');
                 return (
                   <Field
                     className={styles.ContactInputField}
