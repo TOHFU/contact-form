@@ -1,0 +1,59 @@
+@use '@/styles/foundations/variables' as var;
+@use '@/styles/foundations/mixins' as mixin;
+@use '@/styles/foundations/breakpoint' as bp;
+
+.ContactInput {
+  max-width: var.$WIDTH_MAIN;
+  margin: 0 auto;
+  &Card {
+    width: 100%;
+    margin: 40px auto 0;
+    padding: 0;
+    &Inner {
+      display: flex;
+      @include bp.sp {
+        flex-direction: column;
+      }
+    }
+  }
+  &Content {
+    padding: 40px;
+    flex: 1;
+    @include bp.sp {
+      padding: 20px;
+    }
+    &Basic {
+      flex: 2;
+      background-color: var.$COLOR_SECONDARY;
+    }
+    &Detail {
+      flex: 3;
+    }
+  }
+  &Title {
+    margin: 12px 0 24px;
+    @include mixin.fls(34, 34, 50);
+    font-weight: 700;
+    @include bp.sp {
+      margin: 12px 0;
+      @include mixin.fls(24, 24, 50);
+    }
+  }
+  &Field {
+    padding: 16px 0 0;
+    flex: 1;
+  }
+  &Column {
+    display: flex;
+    align-items: flex-start;
+    gap: 0 16px;
+  }
+  &Foot {
+    padding-top: 16px;
+  }
+  &Button {
+    padding-top: 32px;
+    display: flex;
+    justify-content: flex-end;
+  }
+}

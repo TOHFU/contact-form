@@ -35,3 +35,9 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# storybook
+storybook-static
+
+#chromatic
+build-storybook.log

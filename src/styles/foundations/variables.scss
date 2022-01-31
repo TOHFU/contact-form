@@ -3,9 +3,9 @@
 // ========================
 
 // breakpoint
-$BREAKPOINT: 768px;
+$BREAKPOINT: 960px;
 
-$WIDTH_MAIN: 1024px;
+$WIDTH_MAIN: 1280px;
 
 // z-index
 $Z_INDEX_HEADER: 100;
@@ -18,21 +18,26 @@ $Z_INDEX_LOADING: 500;
 $FONT_FAMILY: 'Noto Sans JP', 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
 
 // basic
-$COLOR_PRIMARY: #01579b;
-$COLOR_PRIMARY_DARK: #002f6c;
-$COLOR_SECONDARY: #fce4ec;
-$COLOR_TEXT: #212121;
-$COLOR_TEXT_LIGHT: #eee;
+$COLOR_PRIMARY: var(--color-primary);
+$COLOR_PRIMARY_DARK: var(--color-primary-dark);
+$COLOR_SECONDARY: var(--color-secondary);
+$COLOR_TEXT: var(--color-text);
+$COLOR_TEXT_LIGHT: var(--color-text-light);
 
 // background
-$COLOR_BACKGROUND: #fff;
+$COLOR_BACKGROUND: var(--color-background);
+$COLOR_BACKGROUND_FORM: var(--color-background-form);
 
 // error
-$COLOR_ERROR: #b00020;
-$COLOR_DISABLED: #e0e0e0;
+$COLOR_ERROR: var(--color-error);
+$COLOR_DISABLED: var(--color-disabled);
+$COLOR_AUTOFILL: var(--color-autofill) !important;
 
-$COLOR_BLACK: #000;
-$COLOR_WHITE: #fff;
+$COLOR_PLACEHOLDER: var(--color-placeholder);
 
 // action
-$COLOR_TAP_HIGHLIGHT: rgba(1, 87, 155, 0.3);
+$COLOR_TAP_HIGHLIGHT: var(--color-tap-highlight);
+$COLOR_TAP_HIGHLIGHT_ERROR: var(--color-tap-highlight-error);
+
+$COLOR_DARK: var(--color-dark);
+$COLOR_LIGHT: var(--color-light);

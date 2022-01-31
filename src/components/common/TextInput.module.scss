@@ -1,0 +1,30 @@
+@use '@/styles/foundations/variables' as var;
+@use '@/styles/foundations/mixins' as mixin;
+@use '@/styles/foundations/breakpoint' as bp;
+
+.TextInput {
+  position: relative;
+  &Text {
+    width: 100%;
+    padding: 12px;
+    color: var.$COLOR_TEXT;
+    @include mixin.fl(16, 16);
+    border: 1px solid var.$COLOR_PRIMARY;
+    border-radius: 4px;
+    background-color: var.$COLOR_BACKGROUND_FORM;
+    &::placeholder {
+      color: var.$COLOR_PLACEHOLDER;
+    }
+    &::-ms-input-placeholder {
+      color: var.$COLOR_PLACEHOLDER;
+    }
+    &:-webkit-autofill {
+      background-color: var.$COLOR_AUTOFILL;
+    }
+    @include mixin.accessibleFocus;
+    .HasError & {
+      border-color: var.$COLOR_ERROR;
+      @include mixin.accessibleFocus(var.$COLOR_TAP_HIGHLIGHT_ERROR);
+    }
+  }
+}

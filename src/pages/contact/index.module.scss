@@ -1,0 +1,18 @@
+@use '@/styles/foundations/variables' as var;
+@use '@/styles/foundations/mixins' as mixin;
+@use '@/styles/foundations/breakpoint' as bp;
+
+.Container {
+  width: 100%;
+  padding: 40px 16px;
+  h1 {
+    margin-top: 24px;
+    padding-left: 40px;
+    @include mixin.fls(34, 34, 50);
+    font-weight: 700;
+    @include bp.sp {
+      padding-left: 20px;
+      @include mixin.fls(24, 24, 50);
+    }
+  }
+}

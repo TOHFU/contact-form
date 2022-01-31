@@ -1,0 +1,80 @@
+@use '@/styles/foundations/variables' as var;
+@use '@/styles/foundations/mixins' as mixin;
+@use '@/styles/foundations/breakpoint' as bp;
+
+.Button {
+  min-height: 64px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 26px;
+  align-self: center; // flexで囲まれた場合の対応
+  @include mixin.fl(16, 16);
+  font-weight: bold;
+  text-align: center;
+  color: var.$COLOR_TEXT_LIGHT;
+  border: 1px solid var.$COLOR_PRIMARY;
+  border-radius: 12px;
+  background: var.$COLOR_PRIMARY;
+  background-origin: border-box;
+  cursor: pointer;
+  transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  @include mixin.accessibleFocus();
+  @include bp.nosp {
+    &:hover {
+      color: var.$COLOR_PRIMARY;
+      background-color: var.$COLOR_BACKGROUND;
+    }
+  }
+  &Label {
+    user-select: none;
+    i {
+      padding-left: 4px;
+    }
+  }
+  &Round {
+    border-radius: 24px;
+  }
+  &Secondary {
+    color: var.$COLOR_PRIMARY;
+    background: var.$COLOR_BACKGROUND;
+    @include bp.nosp {
+      &:hover {
+        color: var.$COLOR_TEXT_LIGHT;
+        background-color: var.$COLOR_PRIMARY;
+      }
+    }
+  }
+  &Next,
+  &Prev {
+    &::after {
+      width: 6px;
+      height: 6px;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      position: absolute;
+      border-color: var.$COLOR_PRIMARY;
+      content: '';
+    }
+  }
+  &Next {
+    padding-right: 40px;
+    &::after {
+      right: 20px;
+      border-top: 2px solid;
+      border-right: 2px solid;
+      transform: rotate(45deg);
+    }
+  }
+  &Prev {
+    padding-left: 40px;
+    &::after {
+      left: 20px;
+      border-top: 2px solid;
+      border-right: 2px solid;
+      transform: rotate(-135deg);
+    }
+  }
+}

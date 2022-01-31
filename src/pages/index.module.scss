@@ -1,0 +1,39 @@
+@use '@/styles/foundations/variables' as var;
+@use '@/styles/foundations/mixins' as mixin;
+@use '@/styles/foundations/breakpoint' as bp;
+
+.Container {
+  width: 100%;
+  position: relative;
+  padding: 40px 56px;
+  @include mixin.fls(12, 16, 50);
+  @include bp.sp {
+    padding: 20px 36px;
+  }
+  a[href] {
+    text-decoration: underline;
+  }
+  h1 {
+    margin-bottom: 40px;
+    @include mixin.fls(34, 34, 50);
+    font-weight: 700;
+    @include bp.sp {
+      margin-top: 44px;
+      @include mixin.fls(24, 24, 50);
+    }
+  }
+}
+
+.Arrow {
+  top: 36px;
+  right: 24px;
+  position: absolute;
+  @include bp.sp {
+    top: 30px;
+    right: 36px;
+    width: 90px;
+  }
+  :root[data-color-scheme='dark'] & {
+    filter: invert(1);
+  }
+}

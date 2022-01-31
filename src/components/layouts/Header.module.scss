@@ -1,47 +1,91 @@
 @use '@/styles/foundations/variables' as var;
 @use '@/styles/foundations/mixins' as mixin;
 @use '@/styles/foundations/breakpoint' as bp;
-
-$HEADER_HEIGHT: 72px;
-
 .Header {
   width: 100%;
-  height: $HEADER_HEIGHT;
   position: relative;
   z-index: var.$Z_INDEX_HEADER;
   &Inner {
     width: 100%;
-    height: $HEADER_HEIGHT;
     top: 0;
-    padding: 0 24px;
-    position: fixed;
     display: flex;
     align-items: center;
-    background-color: var.$COLOR_BACKGROUND;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     h1 {
       margin: 0;
+      padding: 24px;
       color: var.$COLOR_TEXT;
       @include mixin.fl(16, 24);
       @include mixin.hover;
     }
+    &Fixed {
+      position: fixed;
+      @include mixin.card(2);
+    }
   }
   &Navi {
     margin-left: auto;
-    ul {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      li {
-        list-style-type: none;
+  }
+  &Menu {
+    width: 100%;
+    right: 0;
+    margin: 0;
+    padding: 0 8px;
+    display: flex;
+    position: absolute;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    transform: translateY(-10%);
+    transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
+    li {
+      padding: 4px 16px;
+      display: inline-block;
+      @include mixin.fl(16, 16);
+      @include mixin.hover;
+      color: var.$COLOR_TEXT;
+      list-style-type: none;
+    }
+  }
+  &Humburger {
+    width: 28px;
+    height: 18px;
+    margin: 24px;
+    position: relative;
+    span {
+      width: 100%;
+      height: 2px;
+      display: block;
+      background-color: var.$COLOR_TEXT;
+      align-self: center;
+      transition: opacity 0.3s ease;
+      opacity: 1;
+      &::before,
+      &::after {
+        width: 100%;
+        height: 2px;
+        display: block;
+        position: absolute;
+        background-color: var.$COLOR_TEXT;
+        transition: transform 0.3s ease;
+        content: '';
+      }
+      &::before {
+        top: 0;
+      }
+      &::after {
+        bottom: 0;
       }
     }
-    &Link {
-      padding: 0 16px;
-      display: inline-block;
-      color: var.$COLOR_TEXT;
-      @include mixin.fl(16, 72);
-      @include mixin.hover;
+    &Open {
+      span {
+        background-color: transparent;
+        &::before {
+          transform: translateY(8px) rotate(45deg);
+        }
+        &::after {
+          transform: translateY(-8px) rotate(-45deg);
+        }
+      }
     }
   }
 }

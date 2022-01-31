@@ -1,0 +1,75 @@
+@use '@/styles/foundations/variables' as var;
+@use '@/styles/foundations/mixins' as mixin;
+@use '@/styles/foundations/breakpoint' as bp;
+
+.CheckInput {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  line-height: 1.25;
+  &Check {
+    position: absolute;
+    opacity: 0;
+    top: 4px;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    font-size: 1em;
+    box-sizing: border-box;
+    cursor: pointer;
+    z-index: 2;
+    + span::before {
+      display: block;
+      position: absolute;
+      top: 4px;
+      left: 0;
+      width: 18px;
+      height: 18px;
+      box-sizing: border-box;
+      border: 1px solid var.$COLOR_PRIMARY;
+      border-radius: 4px;
+      background-color: var.$COLOR_BACKGROUND_FORM;
+      content: '';
+      .HasError & {
+        border-color: var.$COLOR_ERROR;
+      }
+    }
+    &:checked + span::before {
+      border: 1.5px solid var.$COLOR_PRIMARY;
+      background-color: var.$COLOR_PRIMARY;
+      .HasError & {
+        border-color: var.$COLOR_ERROR;
+        background-color: var.$COLOR_PRIMARY;
+      }
+    }
+    &:checked + span::after {
+      display: block;
+      position: absolute;
+      top: 7px;
+      left: 7px;
+      width: 3px;
+      height: 7px;
+      border: 2px solid var.$COLOR_BACKGROUND_FORM;
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg);
+      content: '';
+    }
+    &:focus {
+      border-radius: 4px;
+      opacity: 1;
+    }
+    @include mixin.accessibleFocus;
+    .HasError & {
+      border-color: var.$COLOR_ERROR;
+      @include mixin.accessibleFocus(var.$COLOR_TAP_HIGHLIGHT_ERROR);
+    }
+  }
+  &Label {
+    @include mixin.fl(16, 24);
+    color: var.$COLOR_TEXT;
+    display: inline-block;
+    margin-left: 24px;
+  }
+}
