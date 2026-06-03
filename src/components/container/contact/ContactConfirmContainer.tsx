@@ -1,7 +1,11 @@
+'use client';
+
+import { useState } from 'react';
 import Button from '@/components/common/Button';
 import Card from '@/components/common/Card';
 import { Services } from '@/components/model/contactModel';
 import { ContactFormValues } from '@/pages/contact';
+import { submitContactForm } from '@/utils/contactApi';
 
 import styles from './ContactConfirmContainer.module.scss';
 
@@ -12,12 +16,22 @@ type Props = {
 };
 
 const ContactConfirmContainer: React.FC<Props> = ({ formValues, onBack, onSubmit }) => {
+  const [submitError, setSubmitError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const service = Services.find((item) => item.value === formValues.service)?.label;
 
-  const handleSubmit = () => {
-    // FIXME: API送信
-    window.console.log(formValues);
-    onSubmit();
+  const handleSubmit = async () => {
+    setSubmitError('');
+    setIsSubmitting(true);
+
+    try {
+      await submitContactForm(formValues);
+      onSubmit();
+    } catch (error) {
+      setSubmitError(error instanceof Error ? error.message : '送信に失敗しました。');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -63,9 +77,10 @@ const ContactConfirmContainer: React.FC<Props> = ({ formValues, onBack, onSubmit
                 <dd>{formValues.agreement && '同意する'}</dd>
               </dl>
               <div className={styles.ContactConfirmButton}>
-                <Button type={'button'} label={'修正する'} fill={false} arrow={'prev'} onClick={onBack} />
-                <Button type={'submit'} label={'送信する'} arrow={'next'} onClick={handleSubmit} />
+                <Button type={'button'} label={'修正する'} fill={false} arrow={'prev'} onClick={onBack} disabled={isSubmitting} />
+                <Button type={'submit'} label={isSubmitting ? '送信中...' : '送信する'} arrow={'next'} onClick={handleSubmit} disabled={isSubmitting} />
               </div>
+              {submitError ? <p className={styles.ContactConfirmError}>{submitError}</p> : null}
             </div>
           </div>
         </div>
