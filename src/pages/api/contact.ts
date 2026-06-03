@@ -21,7 +21,17 @@ export default async function handler(
   }
 
   try {
-    const payload = contactPayloadSchema.parse(req.body);
+    // Ensure body is an object — Next may provide a string if headers weren't set.
+    let body: unknown = req.body;
+    if (typeof body === 'string') {
+      try {
+        body = JSON.parse(body);
+      } catch (e) {
+        return res.status(400).json({ message: '不正なJSONが送信されました。' });
+      }
+    }
+
+    const payload = contactPayloadSchema.parse(body);
     const isValid = await verifyRecaptchaToken(payload.recaptchaToken);
 
     if (!isValid) {
@@ -41,6 +51,7 @@ export default async function handler(
       return res.status(400).json({ message });
     }
 
+    // Known client errors handled above; treat others as server errors
     console.error('Contact API error:', error);
     return res.status(500).json({ message: 'サーバーでエラーが発生しました。' });
   }
