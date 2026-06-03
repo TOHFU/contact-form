@@ -32,9 +32,9 @@ export async function submitContactForm(values: ContactFormValues): Promise<Cont
         // ignore
       }
     }
-    const err = new Error(errorMessage);
+    const err: Error & { status?: number } = new Error(errorMessage);
     // attach status for callers if needed
-    (err as any).status = response.status;
+    err.status = response.status;
     throw err;
   }
 
