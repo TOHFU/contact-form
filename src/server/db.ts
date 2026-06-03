@@ -8,10 +8,10 @@ if (!connectionString) {
 
 const pool = new Pool({ connectionString });
 
-export async function query<T = any>(text: string, params?: any[]) {
+export async function query(text: string, params?: any[]) {
   const client = await pool.connect();
   try {
-    const res = await client.query<T>(text, params);
+    const res = await client.query(text, params);
     return res;
   } finally {
     client.release();
