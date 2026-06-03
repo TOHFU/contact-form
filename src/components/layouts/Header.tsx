@@ -23,9 +23,7 @@ const Header: React.FC = () => {
     <header className={styles.Header}>
       <div className={styles.HeaderInner}>
         <h1>
-          <Link href={{ pathname: '/' }} passHref>
-            <a>contact-form</a>
-          </Link>
+          <Link href={{ pathname: '/' }}>contact-form</Link>
         </h1>
         <nav className={styles.HeaderNavi}>
           <button
@@ -41,17 +39,13 @@ const Header: React.FC = () => {
                 <CheckInput text={'switch dark mode'} checked={!!isDarkMode} onChange={handleClickDarkMode} />
               </li>
               <li>
-                <Link href={{ pathname: '/' }}>
-                  <a className={styles.HeaderMenuLink} onClick={handleMenuClick}>
-                    TOP
-                  </a>
+                <Link href={{ pathname: '/' }} className={styles.HeaderMenuLink} onClick={handleMenuClick}>
+                  TOP
                 </Link>
               </li>
               <li>
-                <Link href={{ pathname: '/contact' }}>
-                  <a className={styles.HeaderMenuLink} onClick={handleMenuClick}>
-                    CONTACT
-                  </a>
+                <Link href={{ pathname: '/contact' }} className={styles.HeaderMenuLink} onClick={handleMenuClick}>
+                  CONTACT
                 </Link>
               </li>
             </ul>

@@ -17,9 +17,7 @@ const Home = () => {
         <ul>
           <li>
             Next.jsで
-            <Link href={{ pathname: '/contact' }} passHref>
-              <a>フォーム</a>
-            </Link>
+            <Link href={{ pathname: '/contact' }}>フォーム</Link>
             のフロント画面作成
           </li>
           <li>React Hook Form + Zod でフォーム挙動制御、バリデーション制御</li>
