@@ -14,8 +14,8 @@ type ContactRow = {
 export const revalidate = 0;
 
 async function getContacts(): Promise<ContactRow[]> {
-  const res = await query('SELECT id, first_name, last_name, email, service, title, created_at FROM contacts ORDER BY created_at DESC LIMIT 100');
-  return (res && res.rows) ? (res.rows as ContactRow[]) : [];
+  const res = (await query('SELECT id, first_name, last_name, email, service, title, created_at FROM contacts ORDER BY created_at DESC LIMIT 100')) as { rows?: ContactRow[] } | null;
+  return res?.rows ?? [];
 }
 
 const AdminPage = async () => {
