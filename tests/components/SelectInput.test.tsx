@@ -3,14 +3,14 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import SelectInput, { OptionsType } from '@/components/common/SelectInput';
 
-describe('SelectInput', () => {
+describe('SelectInput コンポーネント', () => {
   const defaultOptions: OptionsType[] = [
     { value: 'option1', label: 'Option 1' },
     { value: 'option2', label: 'Option 2' },
     { value: 'option3', label: 'Option 3' },
   ];
 
-  it('renders select with options', () => {
+  it('オプション付きのセレクトが描画される', () => {
     const handleChange = vi.fn();
     render(
       <SelectInput
@@ -26,7 +26,7 @@ describe('SelectInput', () => {
     expect(screen.getByText(/選択してください/i)).toBeInTheDocument();
   });
 
-  it('calls onChange when option is selected', async () => {
+  it('オプション選択時に onChange が呼ばれる', async () => {
     const handleChange = vi.fn();
     const user = userEvent.setup();
 
@@ -45,7 +45,7 @@ describe('SelectInput', () => {
     // Note: We simulate a change; exact behavior depends on implementation
   });
 
-  it('sets aria-label from label prop', () => {
+  it('label prop から aria-label が設定される', () => {
     const handleChange = vi.fn();
     render(
       <SelectInput
@@ -61,7 +61,7 @@ describe('SelectInput', () => {
     expect(select).toHaveAttribute('aria-label', 'Service Type');
   });
 
-  it('marks as required with aria-required', () => {
+  it('必須として aria-required が設定される', () => {
     const handleChange = vi.fn();
     render(
       <SelectInput
@@ -78,7 +78,7 @@ describe('SelectInput', () => {
     expect(select).toHaveAttribute('aria-required', 'true');
   });
 
-  it('shows error state with aria-invalid', () => {
+  it('エラー状態が aria-invalid で表示される', () => {
     const handleChange = vi.fn();
     render(
       <SelectInput
@@ -95,7 +95,7 @@ describe('SelectInput', () => {
     expect(select).toHaveAttribute('aria-invalid', 'true');
   });
 
-  it('displays selected value', () => {
+  it('選択された値を表示する', () => {
     const handleChange = vi.fn();
     const { rerender } = render(
       <SelectInput

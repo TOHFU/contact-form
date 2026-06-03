@@ -3,8 +3,8 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import TextAreaInput from '@/components/common/TextAreaInput';
 
-describe('TextAreaInput', () => {
-  it('renders textarea with label', () => {
+describe('TextAreaInput コンポーネント', () => {
+  it('ラベル付きの textarea が描画される', () => {
     const handleChange = vi.fn();
     render(
       <TextAreaInput
@@ -19,7 +19,7 @@ describe('TextAreaInput', () => {
     expect(textarea).toHaveAttribute('aria-label', 'Message');
   });
 
-  it('calls onChange when user types', async () => {
+  it('入力時に onChange が呼ばれる', async () => {
     const handleChange = vi.fn();
     const user = userEvent.setup();
 
@@ -38,7 +38,7 @@ describe('TextAreaInput', () => {
     expect(handleChange).toHaveBeenCalled();
   });
 
-  it('displays current value', () => {
+  it('現在の値が表示される', () => {
     const handleChange = vi.fn();
     const { rerender } = render(
       <TextAreaInput
@@ -65,7 +65,7 @@ describe('TextAreaInput', () => {
     expect(textarea).toHaveValue('Some text content');
   });
 
-  it('marks as required with aria-required', () => {
+  it('必須として aria-required が設定される', () => {
     const handleChange = vi.fn();
     render(
       <TextAreaInput
@@ -81,7 +81,7 @@ describe('TextAreaInput', () => {
     expect(textarea).toHaveAttribute('aria-required', 'true');
   });
 
-  it('shows error state with aria-invalid', () => {
+  it('エラー状態が aria-invalid で表示される', () => {
     const handleChange = vi.fn();
     render(
       <TextAreaInput
@@ -97,7 +97,7 @@ describe('TextAreaInput', () => {
     expect(textarea).toHaveAttribute('aria-invalid', 'true');
   });
 
-  it('supports custom placeholder', () => {
+  it('カスタムプレースホルダに対応する', () => {
     const handleChange = vi.fn();
     render(
       <TextAreaInput

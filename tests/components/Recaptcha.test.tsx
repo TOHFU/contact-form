@@ -15,20 +15,20 @@ vi.mock('react-google-recaptcha', () => ({
   ),
 }));
 
-describe('Recaptcha', () => {
+describe('reCAPTCHA コンポーネント', () => {
   beforeEach(() => {
     // 環境変数を設定
     process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY = 'test_site_key';
   });
 
-  it('renders recaptcha component', () => {
+  it('reCAPTCHA コンポーネントが描画される', () => {
     const handleVerify = vi.fn();
     render(<Recaptcha onVerify={handleVerify} />);
 
     expect(screen.getByTestId('recaptcha')).toBeInTheDocument();
   });
 
-  it('calls onVerify when token is received', () => {
+  it('トークン受信時に onVerify が呼ばれる', () => {
     const handleVerify = vi.fn();
     const { getByTestId } = render(<Recaptcha onVerify={handleVerify} />);
 
@@ -38,7 +38,7 @@ describe('Recaptcha', () => {
     expect(handleVerify).toHaveBeenCalledWith('mock_token');
   });
 
-  it('renders with aria-label for accessibility', () => {
+  it('アクセシビリティのために aria-label が設定される', () => {
     const handleVerify = vi.fn();
     render(<Recaptcha onVerify={handleVerify} />);
 
@@ -46,7 +46,7 @@ describe('Recaptcha', () => {
     expect(region).toBeInTheDocument();
   });
 
-  it('renders disabled state', () => {
+  it('無効化状態で描画される', () => {
     const handleVerify = vi.fn();
     render(<Recaptcha onVerify={handleVerify} disabled={true} />);
 
@@ -54,7 +54,7 @@ describe('Recaptcha', () => {
     expect(recaptcha).toHaveAttribute('data-disabled', 'true');
   });
 
-  it('renders enabled state by default', () => {
+  it('デフォルトで有効状態で描画される', () => {
     const handleVerify = vi.fn();
     render(<Recaptcha onVerify={handleVerify} />);
 
@@ -62,7 +62,7 @@ describe('Recaptcha', () => {
     expect(recaptcha).toHaveAttribute('data-disabled', 'false');
   });
 
-  it('calls onExpire callback when token expires', () => {
+  it('トークン期限切れ時に onExpire が呼ばれる（未実装のため未発火を検証）', () => {
     const handleVerify = vi.fn();
     const handleExpire = vi.fn();
     render(<Recaptcha onVerify={handleVerify} onExpire={handleExpire} />);
@@ -71,7 +71,7 @@ describe('Recaptcha', () => {
     expect(handleExpire).not.toHaveBeenCalled();
   });
 
-  it('calls onError callback when error occurs', () => {
+  it('エラー発生時に onError が呼ばれる（未実装のため未発火を検証）', () => {
     const handleVerify = vi.fn();
     const handleError = vi.fn();
     render(<Recaptcha onVerify={handleVerify} onError={handleError} />);
