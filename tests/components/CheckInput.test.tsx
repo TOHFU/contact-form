@@ -3,8 +3,8 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import CheckInput from '@/components/common/CheckInput';
 
-describe('CheckInput', () => {
-  it('renders checkbox with label text', () => {
+describe('CheckInput コンポーネント', () => {
+  it('ラベル付きチェックボックスが描画される', () => {
     const handleChange = vi.fn();
     render(
       <CheckInput
@@ -18,7 +18,7 @@ describe('CheckInput', () => {
     expect(screen.getByText(/I agree to terms/i)).toBeInTheDocument();
   });
 
-  it('calls onChange handler when checkbox is toggled', async () => {
+  it('チェック時に onChange ハンドラが呼ばれる', async () => {
     const handleChange = vi.fn();
     const user = userEvent.setup();
 
@@ -36,7 +36,7 @@ describe('CheckInput', () => {
     expect(handleChange).toHaveBeenCalled();
   });
 
-  it('displays checked state correctly', () => {
+  it('チェック状態が正しく表示される', () => {
     const handleChange = vi.fn();
     const { rerender } = render(
       <CheckInput
@@ -63,7 +63,7 @@ describe('CheckInput', () => {
     expect(checkbox).toBeChecked();
   });
 
-  it('marks as required with aria-required', () => {
+  it('必須として aria-required が設定される', () => {
     const handleChange = vi.fn();
     render(
       <CheckInput
@@ -79,7 +79,7 @@ describe('CheckInput', () => {
     expect(checkbox).toHaveAttribute('aria-required', 'true');
   });
 
-  it('shows error state with aria-invalid', () => {
+  it('エラー状態が aria-invalid で表示される', () => {
     const handleChange = vi.fn();
     render(
       <CheckInput
@@ -95,7 +95,7 @@ describe('CheckInput', () => {
     expect(checkbox).toHaveAttribute('aria-invalid', 'true');
   });
 
-  it('supports aria-label attribute', () => {
+  it('aria-label 属性に対応する', () => {
     const handleChange = vi.fn();
     render(
       <CheckInput

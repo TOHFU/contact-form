@@ -3,8 +3,8 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import TextInput from '@/components/common/TextInput';
 
-describe('TextInput', () => {
-  it('renders input with label attribute', () => {
+describe('TextInput コンポーネント', () => {
+  it('ラベル属性を持つ入力が描画される', () => {
     const handleChange = vi.fn();
     render(
       <TextInput
@@ -20,7 +20,7 @@ describe('TextInput', () => {
     expect(input).toHaveAttribute('aria-label', 'Email Address');
   });
 
-  it('calls onChange handler when user types', async () => {
+  it('入力時に onChange ハンドラが呼ばれる', async () => {
     const handleChange = vi.fn();
     const user = userEvent.setup();
 
@@ -39,7 +39,7 @@ describe('TextInput', () => {
     expect(handleChange).toHaveBeenCalled();
   });
 
-  it('displays error state with aria-invalid', () => {
+  it('エラー状態が aria-invalid で表示される', () => {
     const handleChange = vi.fn();
     render(
       <TextInput
@@ -55,7 +55,7 @@ describe('TextInput', () => {
     expect(input).toHaveAttribute('aria-invalid', 'true');
   });
 
-  it('supports different input types', () => {
+  it('異なる入力タイプをサポートする', () => {
     const handleChange = vi.fn();
     const { rerender } = render(
       <TextInput
@@ -82,7 +82,7 @@ describe('TextInput', () => {
     expect(input).toHaveAttribute('type', 'tel');
   });
 
-  it('marks field as required with aria-required', () => {
+  it('必須フィールドが aria-required でマークされる', () => {
     const handleChange = vi.fn();
     render(
       <TextInput
