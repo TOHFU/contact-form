@@ -16,17 +16,26 @@ export async function submitContactForm(values: ContactFormValues): Promise<Cont
   });
 
   if (!response.ok) {
-    const body = await response.text();
-    let errorMessage = '送信に失敗しました。';
+    // Try to parse JSON error message
+    let errorMessage = response.status >= 500 ? 'サーバーエラーが発生しました。時間をおいて再度お試しください。' : '送信に失敗しました。';
     try {
-      const json = JSON.parse(body);
+      const json = await response.json();
       if (json?.message) {
         errorMessage = json.message;
       }
     } catch {
-      // ignore invalid json
+      // fallback to text
+      try {
+        const text = await response.text();
+        if (text) errorMessage = text;
+      } catch {
+        // ignore
+      }
     }
-    throw new Error(errorMessage);
+    const err = new Error(errorMessage);
+    // attach status for callers if needed
+    (err as any).status = response.status;
+    throw err;
   }
 
   return response.json();
