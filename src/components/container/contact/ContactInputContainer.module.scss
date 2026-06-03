@@ -51,6 +51,14 @@
   &Foot {
     padding-top: 16px;
   }
+  &RecaptchaWrapper {
+    padding: 24px 0 0;
+  }
+  &RecaptchaError {
+    margin: 8px 0 0;
+    color: var.$COLOR_ERROR;
+    font-size: 0.9rem;
+  }
   &Button {
     padding-top: 32px;
     display: flex;
