@@ -97,8 +97,8 @@ export async function createContactRecord(values: ContactPayload) {
     values.agreement ?? false,
   ];
 
-  const res = await query(insertSQL, params);
-  const row = res.rows?.[0];
+  const res = (await query(insertSQL, params)) as { rows?: Array<{ id?: string; created_at?: string }> } | null;
+  const row = res?.rows?.[0];
   return {
     id: row?.id ?? id,
     createdAt: row?.created_at ?? new Date().toISOString(),
