@@ -62,4 +62,9 @@
     gap: 20px;
     justify-content: flex-end;
   }
+  &ContactConfirmError {
+    margin-top: 16px;
+    color: var.$COLOR_ERROR;
+    @include mixin.fl(14, 20);
+  }
 }
