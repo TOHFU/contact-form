@@ -22,6 +22,7 @@
     "normalize.css": "^8.0.1",
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
+    "pg": "^8.10.0",
     "react-google-recaptcha": "^3.1.0",
     "react-hook-form": "^7.48.0",
     "react-use": "^17.6.0",

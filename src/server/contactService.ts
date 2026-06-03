@@ -46,12 +46,61 @@ export async function verifyRecaptchaToken(token: string): Promise<boolean> {
   return body.success === true;
 }
 
-export function createContactRecord(values: ContactPayload) {
+import { query } from './db';
+
+export async function createContactRecord(values: ContactPayload) {
+  // Ensure table exists (id serial primary key)
+  const createTableSQL = `
+    CREATE TABLE IF NOT EXISTS contacts (
+      id TEXT PRIMARY KEY,
+      first_name TEXT NOT NULL,
+      last_name TEXT NOT NULL,
+      first_name_kana TEXT NOT NULL,
+      last_name_kana TEXT NOT NULL,
+      company TEXT,
+      email TEXT NOT NULL,
+      postalcode TEXT,
+      address TEXT,
+      phone TEXT,
+      service TEXT NOT NULL,
+      title TEXT NOT NULL,
+      content TEXT NOT NULL,
+      agreement BOOLEAN NOT NULL,
+      created_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+    );
+  `;
+
+  await query(createTableSQL);
+
   const id = typeof crypto !== 'undefined' && 'randomUUID' in crypto ? crypto.randomUUID() : `${Date.now()}`;
 
-  return {
+  const insertSQL = `
+    INSERT INTO contacts(id, first_name, last_name, first_name_kana, last_name_kana, company, email, postalcode, address, phone, service, title, content, agreement)
+    VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14)
+    RETURNING id, created_at;
+  `;
+
+  const params = [
     id,
-    createdAt: new Date().toISOString(),
-    ...values,
+    values.firstName,
+    values.lastName,
+    values.firstNameKana,
+    values.lastNameKana,
+    values.company ?? null,
+    values.email,
+    values.postalcode ?? null,
+    values.address ?? null,
+    values.phone ?? null,
+    values.service,
+    values.title,
+    values.content,
+    values.agreement ?? false,
+  ];
+
+  const res = await query(insertSQL, params);
+  const row = res.rows?.[0];
+  return {
+    id: row?.id ?? id,
+    createdAt: row?.created_at ?? new Date().toISOString(),
   };
 }
