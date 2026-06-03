@@ -28,7 +28,7 @@ export default async function handler(
       return res.status(400).json({ message: 'reCAPTCHAの検証に失敗しました。' });
     }
 
-    const record = createContactRecord(payload);
+    const record = await createContactRecord(payload);
 
     return res.status(200).json({
       id: record.id,
