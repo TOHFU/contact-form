@@ -26,6 +26,7 @@ export interface ContactFormValues {
   title: string;
   content: string;
   agreement?: boolean;
+  recaptchaToken?: string;
 }
 
 /**
@@ -47,6 +48,7 @@ const INITIAL_FORM_VALUES: ContactFormValues = {
   title: '',
   content: '',
   agreement: undefined,
+  recaptchaToken: undefined,
 };
 
 /**

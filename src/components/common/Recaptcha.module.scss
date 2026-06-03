@@ -1,0 +1,16 @@
+.Recaptcha {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+  padding: 0.5rem;
+
+  @media (max-width: 768px) {
+    margin: 0.75rem 0;
+    padding: 0.25rem;
+  }
+
+  /* reCAPTCHA フレームのスタイル */
+  :global(.g_recaptcha_error) {
+    border-color: #dc3545;
+  }
+}

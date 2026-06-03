@@ -1,3 +1,4 @@
+import { useCallback, useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -10,6 +11,7 @@ import TextInput from '@/components/common/TextInput';
 import SelectInput from '@/components/common/SelectInput';
 import TextAreaInput from '@/components/common/TextAreaInput';
 import CheckInput from '@/components/common/CheckInput';
+import Recaptcha from '@/components/common/Recaptcha';
 import Button from '@/components/common/Button';
 import Card from '@/components/common/Card';
 
@@ -77,13 +79,35 @@ const schema = z.object({
 });
 
 const ContactInputContainer: React.FC<Props> = ({ formValues, onConfirm }) => {
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(formValues.recaptchaToken ?? null);
+  const [recaptchaError, setRecaptchaError] = useState('');
+
   const { control, handleSubmit } = useForm<ContactFormValues>({
     resolver: zodResolver(schema),
     defaultValues: formValues,
   });
 
+  const handleVerify = useCallback((token: string | null) => {
+    setRecaptchaToken(token);
+    setRecaptchaError('');
+  }, []);
+
+  const handleExpired = useCallback(() => {
+    setRecaptchaToken(null);
+    setRecaptchaError('reCAPTCHAの有効期限が切れました。');
+  }, []);
+
+  const handleError = useCallback(() => {
+    setRecaptchaError('reCAPTCHAの読み込みに失敗しました。再読み込みしてください。');
+  }, []);
+
   const onSubmit = handleSubmit((data) => {
-    onConfirm(data);
+    if (!recaptchaToken) {
+      setRecaptchaError('reCAPTCHAの認証が必要です。');
+      return;
+    }
+
+    onConfirm({ ...data, recaptchaToken });
   });
 
   return (
@@ -271,6 +295,14 @@ const ContactInputContainer: React.FC<Props> = ({ formValues, onConfirm }) => {
                   </Field>
                 )}
               />
+              <div className={styles.RecaptchaWrapper}>
+                <Recaptcha
+                  onVerify={handleVerify}
+                  onExpire={handleExpired}
+                  onError={handleError}
+                />
+                {recaptchaError ? <p className={styles.RecaptchaError}>{recaptchaError}</p> : null}
+              </div>
               <div className={styles.ContactInputButton}>
                 <Button type={'submit'} arrow={'next'} label={'確認画面へ'} role={'submit'} />
               </div>

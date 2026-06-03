@@ -42,10 +42,8 @@
 | 言語                         | TypeScript                             |
 | WEBフレームワーク            | Next.js lts                            |
 | フロントエンドフレームワーク | React lts                              |
-| UIフレームワーク             | Chakra UI lts                          |
 | コンポーネント管理           | Storybook                              |
 | 型チェック                   | Zod                                    |
-| データベース                 | indexedDB                              |
 | 書籍の描画                   | CSS Multi-column Layout Module Level 2 |
 | ホスティング                 | Vercel                                 |
 | 単体テスト                   | Vitest, React Testing Library, MSW     |
