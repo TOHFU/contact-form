@@ -80,7 +80,11 @@ const ContactConfirmContainer: React.FC<Props> = ({ formValues, onBack, onSubmit
                 <Button type={'button'} label={'修正する'} fill={false} arrow={'prev'} onClick={onBack} disabled={isSubmitting} />
                 <Button type={'submit'} label={isSubmitting ? '送信中...' : '送信する'} arrow={'next'} onClick={handleSubmit} disabled={isSubmitting} />
               </div>
-              {submitError ? <p className={styles.ContactConfirmError}>{submitError}</p> : null}
+              {submitError ? (
+                <p className={styles.ContactConfirmError} role="alert" aria-live="polite">
+                  {submitError}
+                </p>
+              ) : null}
             </div>
           </div>
         </div>
