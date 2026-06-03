@@ -1,12 +1,12 @@
 import Button from '@/components/common/Button';
 import Card from '@/components/common/Card';
 import { Services } from '@/components/model/contactModel';
-import { FormValues } from '@/pages/contact';
+import { ContactFormValues } from '@/pages/contact';
 
 import styles from './ContactConfirmContainer.module.scss';
 
 type Props = {
-  formValues: FormValues;
+  formValues: ContactFormValues;
   onBack: () => void;
   onSubmit: () => void;
 };

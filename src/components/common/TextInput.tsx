@@ -1,22 +1,37 @@
-import { ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, RefCallback } from 'react';
+import { ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, RefCallback, useMemo } from 'react';
 import styles from './TextInput.module.scss';
 
 export type InputType = 'text' | 'email' | 'number' | 'tel';
 
-type Props = {
+interface TextInputProps extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
+  /** 入力値 */
   value?: string;
+  /** 入力タイプ */
   type?: InputType;
+  /** 入力欄のID */
   id?: string;
+  /** ラベルテキスト */
   label?: string;
+  /** 必須フラグ */
   required?: boolean;
+  /** エラー状態 */
   hasError?: boolean;
+  /** カスタムクラス名 */
   className?: string;
+  /** 入力欄へのref */
   inputRef?: RefCallback<HTMLInputElement>;
-  onChange: (_event: ChangeEvent<HTMLInputElement>) => void;
+  /** 変更時のコールバック */
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  /** フォーカス喪失時のコールバック */
   onBlur?: () => void;
-} & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+}
 
-const TextInput: React.FC<Props> = ({
+/**
+ * テキスト入力コンポーネント
+ * @param props - 入力欄のプロパティ
+ * @returns 入力欄要素
+ */
+const TextInput: React.FC<TextInputProps> = ({
   value = '',
   type = 'text',
   id,
@@ -29,8 +44,13 @@ const TextInput: React.FC<Props> = ({
   onBlur,
   ...attribute
 }) => {
+  const wrapperClassName = useMemo(
+    () => `${styles.TextInput} ${className} ${hasError ? styles.HasError : ''}`,
+    [className, hasError]
+  );
+
   return (
-    <div className={`${styles.TextInput} ${className} ${hasError ? styles.HasError : ''}`}>
+    <div className={wrapperClassName}>
       <input
         type={type}
         id={id}

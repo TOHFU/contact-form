@@ -2,24 +2,51 @@ import { cloneElement, Children, isValidElement } from 'react';
 import CheckInput from './CheckInput';
 import styles from './Field.module.scss';
 
-type Props = {
+interface FieldProps {
+  /** フィールドのID */
   id: string;
+  /** フィールドのラベル */
   label: string;
+  /** 必須フラグ */
   required?: boolean;
+  /** ヒントテキスト */
   hint?: string;
+  /** エラーメッセージ */
   error?: string;
+  /** カスタムクラス名 */
   className?: string;
+  /** フィールド内の子コンポーネント */
   children: React.ReactElement;
-};
+}
 
-const Field: React.FC<Props> = ({ id, label, required = false, hint = '', error = '', className = '', children }) => {
+/**
+ * フィールドコンポーネント
+ * @param props - フィールドのプロパティ
+ * @returns フィールド要素
+ */
+const Field: React.FC<FieldProps> = ({
+  id,
+  label,
+  required = false,
+  hint = '',
+  error = '',
+  className = '',
+  children,
+}) => {
   const childElements = Children.toArray(children);
-  const hasCheckElement = childElements.some((element) => isValidElement(element) && element.type === CheckInput);
+  const hasCheckElement = childElements.some(
+    (element) => isValidElement(element) && element.type === CheckInput
+  );
   const WrapElement = hasCheckElement ? 'div' : 'label';
 
-  const childElement = cloneElement(children, { id, label, required, hasError: error !== '' });
+  const childElement = cloneElement(children, {
+    id,
+    label,
+    required,
+    hasError: error !== '',
+  });
 
-  const errorMessageId = `${id}-error-messaage`;
+  const errorMessageId = `${id}-error-message`;
 
   return (
     <div className={`${styles.Field} ${className} ${error ? styles.HasError : ''}`}>

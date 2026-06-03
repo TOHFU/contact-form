@@ -1,13 +1,9 @@
 import type { ReactElement } from 'react';
-import Image from 'next/image';
-
 import Head from 'next/head';
 import Layout from '@/components/layouts/Layout';
-
 import styles from './index.module.scss';
 import Link from 'next/link';
-
-import arrowImage from '../../public/arrow.svg';
+import ArrowIcon from '../../public/arrow.svg';
 
 const Home = () => {
   return (
@@ -26,17 +22,16 @@ const Home = () => {
             </Link>
             のフロント画面作成
           </li>
-          <li>React Hook Form + Yup でフォーム挙動制御、バリデーション制御</li>
+          <li>React Hook Form + Zod でフォーム挙動制御、バリデーション制御</li>
           <li>フォームのa11y対応・キーボード操作のサポート</li>
           <li>Atomレベルのフォーム基本パーツのコンポーネント作成</li>
-          <li>コンポーネントのStoryBook管理・SnapShotsテスト</li>
+          <li>Vitest + React Testing Library でコンポーネント単体テスト</li>
           <li>ダークモード対応・OSの設定状況を反映・手動切替時ののlocalstrage保持</li>
         </ul>
         <h2>やらないこと</h2>
         <ul>
           <li>デザインカンプの作成</li>
           <li>フォーム入力値のAPI送信(API送信のタイミングでconsole.log出力)</li>
-          <li>ユニットテスト</li>
         </ul>
         <h2>やりたかったこと(TODO)</h2>
         <ul>
@@ -55,7 +50,7 @@ const Home = () => {
           <li>郵便番号→住所変換・現在座標からの住所取得</li>
         </ul>
         <div className={styles.Arrow}>
-          <Image src={arrowImage} layout={'fill'} alt="contact is here." />
+          <ArrowIcon aria-hidden="true" />
         </div>
       </div>
     </>

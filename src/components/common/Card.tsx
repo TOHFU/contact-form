@@ -1,12 +1,20 @@
 import styles from './Card.module.scss';
 
-type Props = {
+interface CardProps {
+  /** カードのタイトル */
   title?: string;
+  /** カスタムクラス名 */
   className?: string;
+  /** カード内の子コンポーネント */
   children?: React.ReactElement;
-};
+}
 
-const Button: React.FC<Props> = ({ title, className = '', children }) => {
+/**
+ * カードコンポーネント
+ * @param props - カードのプロパティ
+ * @returns カード要素
+ */
+const Card: React.FC<CardProps> = ({ title, className = '', children }) => {
   return (
     <section className={`${styles.Card} ${className}`}>
       {title && (
@@ -19,4 +27,4 @@ const Button: React.FC<Props> = ({ title, className = '', children }) => {
   );
 };
 
-export default Button;
+export default Card;

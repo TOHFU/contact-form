@@ -1,19 +1,33 @@
-import { ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, RefCallback } from 'react';
+import { ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, RefCallback, useMemo } from 'react';
 import styles from './CheckInput.module.scss';
 
-type Props = {
+interface CheckInputProps extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
+  /** チェック状態 */
   checked?: boolean;
+  /** チェックボックスのID */
   id?: string;
+  /** ラベルテキスト */
   text?: string;
+  /** 必須フラグ */
   required?: boolean;
+  /** エラー状態 */
   hasError?: boolean;
+  /** カスタムクラス名 */
   className?: string;
+  /** チェックボックスへのref */
   inputRef?: RefCallback<HTMLInputElement>;
-  onChange: (_event: ChangeEvent<HTMLInputElement>) => void;
+  /** 変更時のコールバック */
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  /** フォーカス喪失時のコールバック */
   onBlur?: () => void;
-} & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+}
 
-const CheckInput: React.FC<Props> = ({
+/**
+ * チェックボックスコンポーネント
+ * @param props - チェックボックスのプロパティ
+ * @returns チェックボックス要素
+ */
+const CheckInput: React.FC<CheckInputProps> = ({
   checked = false,
   id,
   text = '',
@@ -25,8 +39,13 @@ const CheckInput: React.FC<Props> = ({
   onBlur,
   ...attribute
 }) => {
+  const labelClassName = useMemo(
+    () => `${styles.CheckInput} ${className} ${hasError ? styles.HasError : ''}`,
+    [className, hasError]
+  );
+
   return (
-    <label className={`${styles.CheckInput} ${className} ${hasError ? styles.HasError : ''}`}>
+    <label className={labelClassName}>
       <input
         type="checkbox"
         id={id}

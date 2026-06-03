@@ -1,19 +1,33 @@
-import { ChangeEvent, DetailedHTMLProps, TextareaHTMLAttributes, RefCallback } from 'react';
+import { ChangeEvent, DetailedHTMLProps, TextareaHTMLAttributes, RefCallback, useMemo } from 'react';
 import styles from './TextAreaInput.module.scss';
 
-type Props = {
+interface TextAreaInputProps extends DetailedHTMLProps<TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement> {
+  /** テキスト入力値 */
   value: string;
+  /** テキストエリアのID */
   id?: string;
+  /** ラベルテキスト */
   label?: string;
+  /** 必須フラグ */
   required?: boolean;
+  /** エラー状態 */
   hasError?: boolean;
+  /** カスタムクラス名 */
   className?: string;
+  /** テキストエリアへのref */
   inputRef?: RefCallback<HTMLTextAreaElement>;
-  onChange: (_event: ChangeEvent<HTMLTextAreaElement>) => void;
+  /** 変更時のコールバック */
+  onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+  /** フォーカス喪失時のコールバック */
   onBlur?: () => void;
-} & DetailedHTMLProps<TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement>;
+}
 
-const TextAreaInput: React.FC<Props> = ({
+/**
+ * テキストエリアコンポーネント
+ * @param props - テキストエリアのプロパティ
+ * @returns テキストエリア要素
+ */
+const TextAreaInput: React.FC<TextAreaInputProps> = ({
   value,
   id,
   label = '',
@@ -25,8 +39,13 @@ const TextAreaInput: React.FC<Props> = ({
   onBlur,
   ...attribute
 }) => {
+  const wrapperClassName = useMemo(
+    () => `${styles.TextAreaInput} ${className} ${hasError ? styles.HasError : ''}`,
+    [className, hasError]
+  );
+
   return (
-    <div className={`${styles.TextAreaInput} ${className} ${hasError ? styles.HasError : ''}`}>
+    <div className={wrapperClassName}>
       <textarea
         className={styles.TextAreaInputText}
         id={id}

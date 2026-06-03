@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-floating-promises */
-import { ReactElement, useEffect, useState } from 'react';
+import { ReactElement, useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/router';
 
 import Head from 'next/head';
@@ -10,74 +9,94 @@ import ContactCompleteContainer from '@/components/container/contact/ContactComp
 
 import styles from './index.module.scss';
 
-export type FormValues = {
+/**
+ * お問い合わせフォームの送信値
+ */
+export interface ContactFormValues {
   firstName: string;
   lastName: string;
   firstNameKana: string;
   lastNameKana: string;
-  company: string | undefined;
+  company?: string;
   email: string;
-  postalcode: string | undefined;
-  address: string | undefined;
-  phone: string | undefined;
-  service: string | undefined;
+  postalcode?: string;
+  address?: string;
+  phone?: string;
+  service?: string;
   title: string;
   content: string;
-  agreement: boolean | undefined;
+  agreement?: boolean;
+}
+
+/**
+ * フォームの状態
+ */
+export type ContactFormState = 'input' | 'confirm' | 'complete';
+
+const INITIAL_FORM_VALUES: ContactFormValues = {
+  firstName: '',
+  lastName: '',
+  firstNameKana: '',
+  lastNameKana: '',
+  company: undefined,
+  email: '',
+  postalcode: undefined,
+  address: undefined,
+  phone: undefined,
+  service: undefined,
+  title: '',
+  content: '',
+  agreement: undefined,
 };
 
-export type FormState = 'input' | 'confirm' | 'complete';
-
-const ContactIndex = () => {
+/**
+ * お問い合わせページコンポーネント
+ */
+const ContactPage = () => {
   const router = useRouter();
-  const [formValues, setFormValues] = useState<FormValues>({
-    firstName: '',
-    lastName: '',
-    firstNameKana: '',
-    lastNameKana: '',
-    company: undefined,
-    email: '',
-    postalcode: undefined,
-    address: undefined,
-    phone: undefined,
-    service: undefined,
-    title: '',
-    content: '',
-    agreement: undefined,
-  });
-  const [formState, setFormState] = useState<FormState>('input');
+  const [formValues, setFormValues] = useState<ContactFormValues>(INITIAL_FORM_VALUES);
+  const [formState, setFormState] = useState<ContactFormState>('input');
 
-  const handleBack = () => {
+  const handleBack = useCallback(() => {
     setFormState('input');
-  };
+  }, []);
 
-  const handleConfirm = (values: FormValues) => {
+  const handleConfirm = useCallback((values: ContactFormValues) => {
     setFormValues(values);
     setFormState('confirm');
-  };
+  }, []);
 
-  const handleSubmit = () => {
+  const handleSubmit = useCallback(() => {
     setFormState('complete');
-  };
+  }, []);
 
-  const handleComplete = () => {
-    router.push('/');
-  };
+  const handleComplete = useCallback(() => {
+    router.push('/').catch((error) => {
+      console.error('Failed to navigate:', error);
+    });
+  }, [router]);
 
   useEffect(() => {
-    window.scroll(0, 0);
+    window.scrollTo(0, 0);
   }, [formState]);
 
   return (
     <>
       <Head>
-        <title>contact | contact form app</title>
+        <title>お問い合わせ | contact form app</title>
+        <meta name="description" content="お問い合わせフォーム" />
       </Head>
       <div className={styles.Container}>
         <h1>お問い合わせ</h1>
-        {formState === 'input' && <ContactInputContainer formValues={formValues} onConfirm={handleConfirm} />}
+        {formState === 'input' && (
+          <ContactInputContainer formValues={formValues} onConfirm={handleConfirm} />
+        )}
         {formState === 'confirm' && (
-          <ContactConfirmContainer formValues={formValues} onBack={handleBack} onSubmit={handleSubmit} />
+          <ContactConfirmContainer
+            formValues={formValues}
+            onBack={handleBack}
+            onSubmit={handleSubmit}
+          />
         )}
         {formState === 'complete' && <ContactCompleteContainer onBack={handleComplete} />}
       </div>
@@ -85,8 +104,8 @@ const ContactIndex = () => {
   );
 };
 
-ContactIndex.getLayout = function getLayout(page: ReactElement) {
+ContactPage.getLayout = function getLayout(page: ReactElement) {
   return <Layout>{page}</Layout>;
 };
 
-export default ContactIndex;
+export default ContactPage;

@@ -1,10 +1,10 @@
 import { useForm, Controller } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
 
 import { Services } from '@/components/model/contactModel';
 
-import { FormValues } from '@/pages/contact';
+import { ContactFormValues } from '@/pages/contact';
 import Field from '@/components/common/Field';
 import TextInput from '@/components/common/TextInput';
 import SelectInput from '@/components/common/SelectInput';
@@ -16,33 +16,69 @@ import Card from '@/components/common/Card';
 import styles from './ContactInputContainer.module.scss';
 
 type Props = {
-  formValues: FormValues;
-  onConfirm: (_values: FormValues) => void;
+  formValues: ContactFormValues;
+  onConfirm: (_values: ContactFormValues) => void;
 };
 
-const schema: yup.SchemaOf<FormValues> = yup.object({
-  firstName: yup.string().max(20, '20文字以内で入力してください。').required('必須項目です。'),
-  lastName: yup.string().max(20, '20文字以内で入力してください。').required('必須項目です。'),
-  firstNameKana: yup.string().max(20, '20文字以内で入力してください。').required('必須項目です。'),
-  lastNameKana: yup.string().max(20, '20文字以内で入力してください。').required('必須項目です。'),
-  company: yup.string().max(50, '50文字以内で入力してください。'),
-  email: yup
+const schema = z.object({
+  firstName: z
     .string()
-    .max(512, '512文字以内で入力してください。')
+    .min(1, '必須項目です。')
+    .max(20, '20文字以内で入力してください。'),
+  lastName: z
+    .string()
+    .min(1, '必須項目です。')
+    .max(20, '20文字以内で入力してください。'),
+  firstNameKana: z
+    .string()
+    .min(1, '必須項目です。')
+    .max(20, '20文字以内で入力してください。'),
+  lastNameKana: z
+    .string()
+    .min(1, '必須項目です。')
+    .max(20, '20文字以内で入力してください。'),
+  company: z
+    .string()
+    .max(50, '50文字以内で入力してください。')
+    .optional(),
+  email: z
+    .string()
+    .min(1, '必須項目です。')
     .email('不正なメールアドレスです。')
-    .required('必須項目です。'),
-  postalcode: yup.string().max(7, '7文字以内で入力してください。'),
-  address: yup.string().max(100, '100文字以内で入力してください。'),
-  phone: yup.string().max(11, '11文字以内で入力してください。'),
-  service: yup.string().required('必須項目です。'),
-  title: yup.string().max(100, '100文字以内で入力してください。').required('必須項目です。'),
-  content: yup.string().max(2000, '2000文字以内で入力してください。').required('必須項目です。'),
-  agreement: yup.bool().isTrue('必須項目です。').required('必須項目です。'),
+    .max(512, '512文字以内で入力してください。'),
+  postalcode: z
+    .string()
+    .max(7, '7文字以内で入力してください。')
+    .optional(),
+  address: z
+    .string()
+    .max(100, '100文字以内で入力してください。')
+    .optional(),
+  phone: z
+    .string()
+    .max(11, '11文字以内で入力してください。')
+    .optional(),
+  service: z
+    .string()
+    .min(1, '必須項目です。')
+    .optional(),
+  title: z
+    .string()
+    .min(1, '必須項目です。')
+    .max(100, '100文字以内で入力してください。'),
+  content: z
+    .string()
+    .min(1, '必須項目です。')
+    .max(2000, '2000文字以内で入力してください。'),
+  agreement: z
+    .boolean()
+    .refine((val) => val === true, '必須項目です。')
+    .optional(),
 });
 
 const ContactInputContainer: React.FC<Props> = ({ formValues, onConfirm }) => {
-  const { control, handleSubmit } = useForm<FormValues>({
-    resolver: yupResolver(schema),
+  const { control, handleSubmit } = useForm<ContactFormValues>({
+    resolver: zodResolver(schema),
     defaultValues: formValues,
   });
 

@@ -1,30 +1,47 @@
-import { ChangeEvent, DetailedHTMLProps, SelectHTMLAttributes, RefCallback } from 'react';
+import { ChangeEvent, DetailedHTMLProps, SelectHTMLAttributes, RefCallback, useMemo } from 'react';
 import styles from './SelectInput.module.scss';
 
-export interface OptionsType {
+export interface OptionItem {
+  /** オプションの値 */
   value: string;
+  /** オプションのラベル */
   label: string;
 }
 
-type Props = {
-  options: OptionsType[];
+interface SelectInputProps extends DetailedHTMLProps<SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement> {
+  /** 選択肢の配列 */
+  options: OptionItem[];
+  /** 選択値 */
   value?: string;
+  /** セレクトボックスのID */
   id?: string;
+  /** ラベルテキスト */
   label?: string;
+  /** 必須フラグ */
   required?: boolean;
+  /** エラー状態 */
   hasError?: boolean;
+  /** カスタムクラス名 */
   className?: string;
+  /** セレクトボックスへのref */
   inputRef?: RefCallback<HTMLSelectElement>;
-  onChange: (_event: ChangeEvent<HTMLInputElement>) => void;
+  /** 変更時のコールバック */
+  onChange: (event: ChangeEvent<HTMLSelectElement>) => void;
+  /** フォーカス喪失時のコールバック */
   onBlur?: () => void;
-} & DetailedHTMLProps<SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>;
+}
 
-const initialOption = {
+const INITIAL_OPTION: OptionItem = {
   value: '',
   label: '選択してください',
 } as const;
 
-const SelectInput: React.FC<Props> = ({
+/**
+ * セレクトボックスコンポーネント
+ * @param props - セレクトボックスのプロパティ
+ * @returns セレクトボックス要素
+ */
+const SelectInput: React.FC<SelectInputProps> = ({
   options,
   value = '',
   id,
@@ -37,8 +54,18 @@ const SelectInput: React.FC<Props> = ({
   onBlur,
   ...attribute
 }) => {
+  const wrapperClassName = useMemo(
+    () => `${styles.SelectInput} ${className} ${hasError ? styles.HasError : ''}`,
+    [className, hasError]
+  );
+
+  const allOptions = useMemo(
+    () => [INITIAL_OPTION, ...options],
+    [options]
+  );
+
   return (
-    <div className={`${styles.SelectInput} ${className} ${hasError ? styles.HasError : ''}`}>
+    <div className={wrapperClassName}>
       <select
         id={id}
         value={value}
@@ -51,7 +78,7 @@ const SelectInput: React.FC<Props> = ({
         onBlur={onBlur}
         {...attribute}
       >
-        {[initialOption, ...options]?.map((item) => (
+        {allOptions?.map((item) => (
           <option key={item.value} value={item.value}>
             {item.label}
           </option>
