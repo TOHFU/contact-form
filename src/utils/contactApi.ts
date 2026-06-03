@@ -7,12 +7,29 @@ export type ContactSubmitResponse = {
 };
 
 export async function submitContactForm(values: ContactFormValues): Promise<ContactSubmitResponse> {
+  const payload: ContactFormValues = {
+    firstName: values.firstName,
+    lastName: values.lastName,
+    firstNameKana: values.firstNameKana,
+    lastNameKana: values.lastNameKana,
+    company: values.company,
+    email: values.email,
+    postalcode: values.postalcode,
+    address: values.address,
+    phone: values.phone,
+    service: values.service,
+    title: values.title,
+    content: values.content,
+    agreement: values.agreement,
+    recaptchaToken: values.recaptchaToken,
+  };
+
   const response = await fetch('/api/contact', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json; charset=utf-8',
     },
-    body: JSON.stringify(values),
+    body: JSON.stringify(payload),
   });
 
   if (!response.ok) {
