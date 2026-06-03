@@ -28,8 +28,9 @@ export async function submitContactForm(values: ContactFormValues): Promise<Cont
     method: 'POST',
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
+      Accept: 'application/json',
     },
-    body: JSON.stringify(payload),
+    body: new Blob([JSON.stringify(payload)], { type: 'application/json' }),
   });
 
   if (!response.ok) {
