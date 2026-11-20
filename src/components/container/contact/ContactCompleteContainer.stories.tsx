@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import ContactCompleteContainer from './ContactCompleteContainer';
 
@@ -7,9 +7,9 @@ export default {
   title: 'Container/ContactCompleteContainer',
   component: ContactCompleteContainer,
   argTypes: {},
-} as ComponentMeta<typeof ContactCompleteContainer>;
+} as Meta<typeof ContactCompleteContainer>;
 
-const Template: ComponentStory<typeof ContactCompleteContainer> = (args) => {
+const Template: StoryFn<typeof ContactCompleteContainer> = (args) => {
   return <ContactCompleteContainer {...args} />;
 };
 

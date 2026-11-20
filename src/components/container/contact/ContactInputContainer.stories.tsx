@@ -1,6 +1,6 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { screen, userEvent } from '@storybook/test';
+import type { Meta, StoryFn } from '@storybook/react';
+import { screen, userEvent } from 'storybook/test';
 
 import ContactInputContainer from './ContactInputContainer';
 
@@ -8,7 +8,7 @@ export default {
   title: 'Container/ContactInputContainer',
   component: ContactInputContainer,
   argTypes: {},
-} as ComponentMeta<typeof ContactInputContainer>;
+} as Meta<typeof ContactInputContainer>;
 
 const defaultFormValuesMock = {
   firstName: '阿夫利',
@@ -26,7 +26,7 @@ const defaultFormValuesMock = {
   agreement: true,
 };
 
-const Template: ComponentStory<typeof ContactInputContainer> = (args) => {
+const Template: StoryFn<typeof ContactInputContainer> = (args) => {
   return <ContactInputContainer {...args} />;
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import Field from './Field';
 import TextInput from './TextInput';
@@ -9,9 +9,9 @@ export default {
   title: 'Components/Field',
   component: Field,
   argTypes: {},
-} as ComponentMeta<typeof Field>;
+} as Meta<typeof Field>;
 
-const Template: ComponentStory<typeof Field> = (args) => <Field {...args} />;
+const Template: StoryFn<typeof Field> = (args) => <Field {...args} />;
 
 export const WithTextInput = Template.bind({});
 WithTextInput.args = {

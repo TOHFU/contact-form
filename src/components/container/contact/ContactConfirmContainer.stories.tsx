@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import ContactConfirmContainer from './ContactConfirmContainer';
 
@@ -7,9 +7,9 @@ export default {
   title: 'Container/ContactConfirmContainer',
   component: ContactConfirmContainer,
   argTypes: {},
-} as ComponentMeta<typeof ContactConfirmContainer>;
+} as Meta<typeof ContactConfirmContainer>;
 
-const Template: ComponentStory<typeof ContactConfirmContainer> = (args) => {
+const Template: StoryFn<typeof ContactConfirmContainer> = (args) => {
   return <ContactConfirmContainer {...args} />;
 };
 

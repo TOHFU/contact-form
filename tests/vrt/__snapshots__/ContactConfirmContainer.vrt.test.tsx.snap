@@ -3,24 +3,24 @@
 exports[`ContactConfirmContainer > should match the visual snapshot 1`] = `
 <div>
   <div
-    class="_ContactConfirm_f9b0c5"
+    class="_ContactConfirm_88fff6"
   >
     <section
-      class="_Card_934d97 _ContactConfirmCard_f9b0c5"
+      class="_Card_d157fd _ContactConfirmCard_88fff6"
     >
       <div
-        class="_ContactConfirmCardInner_f9b0c5"
+        class="_ContactConfirmCardInner_88fff6"
       >
         <div
-          class="_ContactConfirmContent_f9b0c5 _ContactConfirmContentBasic_f9b0c5"
+          class="_ContactConfirmContent_88fff6 _ContactConfirmContentBasic_88fff6"
         >
           <h4
-            class="_ContactConfirmTitle_f9b0c5"
+            class="_ContactConfirmTitle_88fff6"
           >
             基本情報
           </h4>
           <dl
-            class="_ContactConfirmList_f9b0c5"
+            class="_ContactConfirmList_88fff6"
           >
             <dt>
               姓
@@ -79,15 +79,15 @@ exports[`ContactConfirmContainer > should match the visual snapshot 1`] = `
           </dl>
         </div>
         <div
-          class="_ContactConfirmContent_f9b0c5 _ContactConfirmContentDetail_f9b0c5"
+          class="_ContactConfirmContent_88fff6 _ContactConfirmContentDetail_88fff6"
         >
           <h4
-            class="_ContactConfirmTitle_f9b0c5"
+            class="_ContactConfirmTitle_88fff6"
           >
             お問い合わせ情報
           </h4>
           <dl
-            class="_ContactConfirmList_f9b0c5"
+            class="_ContactConfirmList_88fff6"
           >
             <dt>
               どの製品について
@@ -109,10 +109,10 @@ exports[`ContactConfirmContainer > should match the visual snapshot 1`] = `
             </dd>
           </dl>
           <div
-            class="_ContactConfirmFoot_f9b0c5"
+            class="_ContactConfirmFoot_88fff6"
           >
             <dl
-              class="_ContactConfirmList_f9b0c5"
+              class="_ContactConfirmList_88fff6"
             >
               <dt>
                 個人情報の保持の同意
@@ -122,24 +122,24 @@ exports[`ContactConfirmContainer > should match the visual snapshot 1`] = `
               </dd>
             </dl>
             <div
-              class="_ContactConfirmButton_f9b0c5"
+              class="_ContactConfirmButton_88fff6"
             >
               <button
-                class="_Button_e2b55b _ButtonPrev_e2b55b _ButtonSecondary_e2b55b"
+                class="_Button_b00827 _ButtonPrev_b00827 _ButtonSecondary_b00827"
                 type="button"
               >
                 <span
-                  class="_ButtonLabel_e2b55b"
+                  class="_ButtonLabel_b00827"
                 >
                   修正する
                 </span>
               </button>
               <button
-                class="_Button_e2b55b _ButtonNext_e2b55b"
+                class="_Button_b00827 _ButtonNext_b00827"
                 type="submit"
               >
                 <span
-                  class="_ButtonLabel_e2b55b"
+                  class="_ButtonLabel_b00827"
                 >
                   送信する
                 </span>

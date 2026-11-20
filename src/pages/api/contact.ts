@@ -47,7 +47,7 @@ export default async function handler(
     });
   } catch (error) {
     if (error instanceof z.ZodError) {
-      const message = error.errors.map((item) => item.message).join(' ');
+      const message = error.issues.map((item) => item.message).join(' ');
       return res.status(400).json({ message });
     }
 

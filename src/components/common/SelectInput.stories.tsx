@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import SelectInput from './SelectInput';
 
@@ -7,9 +7,9 @@ export default {
   title: 'Components/SelectInput',
   component: SelectInput,
   argTypes: {},
-} as ComponentMeta<typeof SelectInput>;
+} as Meta<typeof SelectInput>;
 
-const Template: ComponentStory<typeof SelectInput> = (args) => <SelectInput {...args} />;
+const Template: StoryFn<typeof SelectInput> = (args) => <SelectInput {...args} />;
 
 export const Basic = Template.bind({});
 Basic.args = {

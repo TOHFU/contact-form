@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import TextInput from './TextInput';
 
@@ -16,9 +16,9 @@ export default {
       options: ['text', 'email', 'number', 'tel'],
     },
   },
-} as ComponentMeta<typeof TextInput>;
+} as Meta<typeof TextInput>;
 
-const Template: ComponentStory<typeof TextInput> = (args) => {
+const Template: StoryFn<typeof TextInput> = (args) => {
   const [value, setValue] = useState<string>(args.value ?? '');
   return (
     <TextInput

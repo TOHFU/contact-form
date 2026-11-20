@@ -8,9 +8,11 @@ module.exports = {
     'storybook-addon-pseudo-states',
     '@storybook/addon-interactions',
   ],
-  framework: '@storybook/react',
-  core: {
-    builder: 'webpack5',
+  framework: {
+    name: '@storybook/react',
+    options: {
+      strictMode: true,
+    },
   },
   webpackFinal: async (config) => {
     const rootPath = path.resolve(__dirname, '../src');
